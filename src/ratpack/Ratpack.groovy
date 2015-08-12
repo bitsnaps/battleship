@@ -1,4 +1,6 @@
+import handlers.BoatHandler
 import handlers.ConnectHandler
+import handlers.ShootingHandler
 import model.Game
 import modules.GameModule
 import ratpack.groovy.template.MarkupTemplateModule
@@ -22,10 +24,14 @@ ratpack {
     all(RequestId.bindAndLog())
 
     all { Game game ->
-      next(Registry.single(Game, game));
+      next(Registry.single(Game, game))
     }
 
     post("connect", new ConnectHandler())
+
+    post("ship", new BoatHandler())
+
+    post("shot", new ShootingHandler())
 
 
   }
