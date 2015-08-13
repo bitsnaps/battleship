@@ -1,124 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b22b5908-25a0-4baf-8acc-cd24e1223c17" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileHashes.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileSnapshots.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/outputFileStates.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/taskArtifacts.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/handlers/ConnectHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/model/Game.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/model/Player.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/modules/GameModule.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/Ratpack.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/public/images/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/templates/index.gtpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_core_util_VersionUtil_6290.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_JavaType_6322.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_AnnotatedClass_25914.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_AnnotatedConstructor_7463.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_AnnotatedField_5829.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_AnnotatedMethod_8692.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_BasicBeanDescription_21843.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_JacksonAnnotationIntrospector_39415.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_VisibilityChecker$Std_8265.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_ser_BasicSerializerFactory_43518.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_util_ClassUtil_13279.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_common_reflect_Element_4238.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_common_reflect_Invokable$MethodInvokable_2498.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_common_reflect_Types$JavaVersion$3_2058.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_Annotations$AnnotationChecker$1_2058.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_Annotations_12995.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_BytecodeGen$Visibility_2946.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_ConstructorBindingImpl_14478.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_DefaultConstructionProxyFactory_3126.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_Errors_34422.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_InjectorImpl_37165.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_ProviderMethod_9414.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_ProviderMethodsModule_12293.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_SingleMethodInjector_5133.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_TypeConverterBindingProcessor$5_2313.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_TypeConverterBindingProcessor_6070.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_core_$DebuggingClassWriter$1_3154.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_core_$DebuggingClassWriter_3747.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_core_$ReflectUtils$2_1702.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_core_$ReflectUtils$4_1300.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_core_$ReflectUtils_15454.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_proxy_$Enhancer_28857.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_reflect_$FastClassEmitter_8812.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_reflect_$FastClass_5553.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_util_Classes_2594.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_matcher_Matchers_5153.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_spi_InjectionPoint_20066.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/groovy_grape_Grape_5162.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/groovy_json_internal_FastStringUtils_3127.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/groovy_lang_MetaClassRegistry$MetaClassCreationHandle_2886.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/groovyjarjarantlr_ASTFactory_6276.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/groovyjarjarantlr_CharScanner_8286.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/groovyjarjarantlr_Utils_1849.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_channel_ChannelHandlerAdapter_2123.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_channel_DefaultChannelId_12498.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_channel_ReflectiveChannelFactory_1812.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_util_internal_JavassistTypeParameterMatcherGenerator_4744.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_util_internal_PlatformDependent0_11494.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_util_internal_PlatformDependent_21424.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_util_internal_UnsafeAtomicIntegerFieldUpdater_2659.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_util_internal_UnsafeAtomicLongFieldUpdater_2643.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_util_internal_UnsafeAtomicReferenceFieldUpdater_2919.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/javassist_ClassPool$1_1224.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/javassist_ClassPool_15149.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_antlr_parser_GroovyLexer_61632.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_ast_ClassNode_37700.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_ast_FieldNode_4637.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_classgen_AnnotationVisitor_13601.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_classgen_Verifier_40287.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_classgen_asm_MethodCaller_2645.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_classgen_asm_WriterController_13539.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_control_ParserPluginFactory_1977.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_control_ResolveVisitor_38115.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedClass$1$1_1336.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedClass$2$1_1042.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedClass$3$1_1456.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedClass_12888.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedConstructor_4586.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedField_2208.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedMethod_9886.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_ClassLoaderForClassArtifacts_3821.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_GeneratedMetaMethod$Proxy_3278.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_GroovyClassValueFactory_2167.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_stdclasses_CachedSAMClass$1_992.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_stdclasses_CachedSAMClass_7439.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_DefaultGroovyMethods_283588.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_InvokerHelper_25009.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_MethodRankHelper_12882.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_callsite_AbstractCallSite_14775.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_callsite_CallSiteGenerator_10303.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_callsite_PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce_1846.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_callsite_PogoMetaMethodSite$PogoCachedMethodSite_2183.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_m12n_StandardPropertiesModuleFactory_2376.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_metaclass_MetaClassRegistryImpl$1_2317.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_metaclass_MetaClassRegistryImpl_18305.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_metaclass_ReflectionMetaMethod_2566.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_typehandling_DefaultTypeTransformation_20039.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_transform_ASTTransformationCollectorCodeVisitor_11202.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_transform_ASTTransformationVisitor_14195.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_transform_stc_StaticTypeCheckingSupport_53461.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_transform_trait_Traits_11579.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_vmplugin_VMPluginFactory_1740.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_vmplugin_v5_Java5_20829.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_vmplugin_v5_PluginDefaultGroovyMethods_3741.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_vmplugin_v7_Java7_3293.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/ratpack_file_internal_ActivationBackedMimeTypes_5141.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/ratpack_groovy_internal_ClosureUtil_8812.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/ratpack_guice_ConfigurableModule_5104.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/ratpack_guice_internal_DefaultBindingsSpec_4697.bytes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/ratpack_handling_internal_Extractions_2559.bytes" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/battleship.iws" afterPath="$PROJECT_DIR$/battleship.iws" />
-    </list>
+    <list default="true" id="b22b5908-25a0-4baf-8acc-cd24e1223c17" name="Default" comment="" />
     <ignored path="battleship.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -1230,12 +1113,19 @@
       <workItem from="1439365908622" duration="11737000" />
       <workItem from="1439381224004" duration="2648000" />
       <workItem from="1439384505016" duration="16000" />
-      <workItem from="1439451191791" duration="116000" />
+      <workItem from="1439451191791" duration="187000" />
     </task>
+    <task id="LOCAL-00001" summary="Delete not necessary folder and files.">
+      <created>1439451365618</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1439451365618</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28222000" />
+    <option name="totallyTimeSpent" value="28293000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1026" height="680" extended-state="6" />
@@ -1243,11 +1133,12 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.64888126" sideWeight="0.50646204" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38433516" sideWeight="0.49353796" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3857404" sideWeight="0.49353796" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17515275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1305,6 +1196,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Delete not necessary folder and files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete not necessary folder and files." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
