@@ -2,27 +2,122 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b22b5908-25a0-4baf-8acc-cd24e1223c17" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/groovy/model/FieldState.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/groovy/handlers/ShootingHandler.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/handlers/ConnectHandler.class" afterPath="$PROJECT_DIR$/build/classes/main/handlers/ConnectHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/model/Game.class" afterPath="$PROJECT_DIR$/build/classes/main/model/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/model/Player.class" afterPath="$PROJECT_DIR$/build/classes/main/model/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/.index" afterPath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/.index" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/handlers/BoatHandler.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/handlers/BoatHandler.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/model/Game.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/model/Game.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/model/Player.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/model/Player.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/Ratpack.groovy" afterPath="$PROJECT_DIR$/build/resources/main/Ratpack.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ratpack/Ratpack.groovy" afterPath="$PROJECT_DIR$/src/ratpack/Ratpack.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/battleship.ipr" afterPath="$PROJECT_DIR$/battleship.ipr" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileHashes.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileSnapshots.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/outputFileStates.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/taskArtifacts.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/handlers/ConnectHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/model/Game.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/model/Player.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/modules/GameModule.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/Ratpack.groovy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/public/images/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/templates/index.gtpl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_core_util_VersionUtil_6290.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_JavaType_6322.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_AnnotatedClass_25914.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_AnnotatedConstructor_7463.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_AnnotatedField_5829.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_AnnotatedMethod_8692.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_BasicBeanDescription_21843.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_JacksonAnnotationIntrospector_39415.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_introspect_VisibilityChecker$Std_8265.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_ser_BasicSerializerFactory_43518.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_fasterxml_jackson_databind_util_ClassUtil_13279.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_common_reflect_Element_4238.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_common_reflect_Invokable$MethodInvokable_2498.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_common_reflect_Types$JavaVersion$3_2058.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_Annotations$AnnotationChecker$1_2058.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_Annotations_12995.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_BytecodeGen$Visibility_2946.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_ConstructorBindingImpl_14478.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_DefaultConstructionProxyFactory_3126.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_Errors_34422.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_InjectorImpl_37165.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_ProviderMethod_9414.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_ProviderMethodsModule_12293.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_SingleMethodInjector_5133.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_TypeConverterBindingProcessor$5_2313.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_TypeConverterBindingProcessor_6070.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_core_$DebuggingClassWriter$1_3154.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_core_$DebuggingClassWriter_3747.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_core_$ReflectUtils$2_1702.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_core_$ReflectUtils$4_1300.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_core_$ReflectUtils_15454.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_proxy_$Enhancer_28857.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_reflect_$FastClassEmitter_8812.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_cglib_reflect_$FastClass_5553.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_internal_util_Classes_2594.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_matcher_Matchers_5153.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/com_google_inject_spi_InjectionPoint_20066.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/groovy_grape_Grape_5162.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/groovy_json_internal_FastStringUtils_3127.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/groovy_lang_MetaClassRegistry$MetaClassCreationHandle_2886.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/groovyjarjarantlr_ASTFactory_6276.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/groovyjarjarantlr_CharScanner_8286.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/groovyjarjarantlr_Utils_1849.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_channel_ChannelHandlerAdapter_2123.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_channel_DefaultChannelId_12498.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_channel_ReflectiveChannelFactory_1812.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_util_internal_JavassistTypeParameterMatcherGenerator_4744.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_util_internal_PlatformDependent0_11494.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_util_internal_PlatformDependent_21424.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_util_internal_UnsafeAtomicIntegerFieldUpdater_2659.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_util_internal_UnsafeAtomicLongFieldUpdater_2643.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/io_netty_util_internal_UnsafeAtomicReferenceFieldUpdater_2919.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/javassist_ClassPool$1_1224.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/javassist_ClassPool_15149.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_antlr_parser_GroovyLexer_61632.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_ast_ClassNode_37700.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_ast_FieldNode_4637.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_classgen_AnnotationVisitor_13601.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_classgen_Verifier_40287.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_classgen_asm_MethodCaller_2645.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_classgen_asm_WriterController_13539.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_control_ParserPluginFactory_1977.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_control_ResolveVisitor_38115.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedClass$1$1_1336.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedClass$2$1_1042.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedClass$3$1_1456.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedClass_12888.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedConstructor_4586.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedField_2208.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_CachedMethod_9886.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_ClassLoaderForClassArtifacts_3821.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_GeneratedMetaMethod$Proxy_3278.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_GroovyClassValueFactory_2167.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_stdclasses_CachedSAMClass$1_992.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_reflection_stdclasses_CachedSAMClass_7439.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_DefaultGroovyMethods_283588.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_InvokerHelper_25009.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_MethodRankHelper_12882.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_callsite_AbstractCallSite_14775.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_callsite_CallSiteGenerator_10303.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_callsite_PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce_1846.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_callsite_PogoMetaMethodSite$PogoCachedMethodSite_2183.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_m12n_StandardPropertiesModuleFactory_2376.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_metaclass_MetaClassRegistryImpl$1_2317.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_metaclass_MetaClassRegistryImpl_18305.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_metaclass_ReflectionMetaMethod_2566.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_runtime_typehandling_DefaultTypeTransformation_20039.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_transform_ASTTransformationCollectorCodeVisitor_11202.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_transform_ASTTransformationVisitor_14195.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_transform_stc_StaticTypeCheckingSupport_53461.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_transform_trait_Traits_11579.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_vmplugin_VMPluginFactory_1740.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_vmplugin_v5_Java5_20829.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_vmplugin_v5_PluginDefaultGroovyMethods_3741.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/org_codehaus_groovy_vmplugin_v7_Java7_3293.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/ratpack_file_internal_ActivationBackedMimeTypes_5141.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/ratpack_groovy_internal_ClosureUtil_8812.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/ratpack_guice_ConfigurableModule_5104.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/ratpack_guice_internal_DefaultBindingsSpec_4697.bytes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/springloaded-cache/1.8.0_51/.slcache/ratpack_handling_internal_Extractions_2559.bytes" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/battleship.iws" afterPath="$PROJECT_DIR$/battleship.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew" afterPath="$PROJECT_DIR$/gradlew" />
     </list>
     <ignored path="battleship.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -129,7 +224,7 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
               <folding />
             </state>
@@ -173,8 +268,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32608697">
-              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -707,8 +802,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-1" />
     <option name="y" value="27" />
-    <option name="width" value="1922" />
-    <option name="height" value="934" />
+    <option name="width" value="1026" />
+    <option name="height" value="680" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -741,7 +836,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -760,104 +854,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ratpack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="groovy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="groovy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="groovy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
@@ -1230,14 +1229,16 @@
       <workItem from="1439359382771" duration="68000" />
       <workItem from="1439365908622" duration="11737000" />
       <workItem from="1439381224004" duration="2648000" />
+      <workItem from="1439384505016" duration="16000" />
+      <workItem from="1439451191791" duration="116000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28090000" />
+    <option name="totallyTimeSpent" value="28222000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="27" width="1922" height="934" extended-state="6" />
+    <frame x="-1" y="27" width="1026" height="680" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1246,10 +1247,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.64888126" sideWeight="0.50646204" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.7011208" sideWeight="0.49353796" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38433516" sideWeight="0.49353796" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17571884" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17515275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1315,6 +1316,86 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/ratpack/Ratpack.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/handlers/BoatHandler.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+          <folding>
+            <element signature="e#18#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/handlers/ShootingHandler.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="e#18#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/modules/GameModule.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+          <folding>
+            <element signature="e#17#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/model/Game.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/model/Player.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/model/FieldState.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/handlers/ConnectHandler.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1648,14 +1729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/handlers/BoatHandler.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1692,10 +1765,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32608697">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
           <folding />
         </state>
       </provider>
