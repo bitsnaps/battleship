@@ -2,17 +2,17 @@ package model
 
 import static model.FieldState.*
 
-/**
- * Created by sven on 11.08.15.
- */
 class Player {
     String name
     String id
+    //Players own field
     Map<Integer, FieldState> field = [:]
+    // Field of opposite player
+    Map<Integer,FieldState> oppositeField = [:]
     //Size : Count
     Map<Integer, Integer> ships = [5:1, 4:2, 3:3, 2:4]
 
-    boolean placeBoat(Map<String, Map<String, String>> boatCoordinates) {
+    Map<Integer, FieldState> placeBoat(Map<String, Map<String, String>> boatCoordinates) {
         final bow = calculatePosition(boatCoordinates.bow)
         final stern = calculatePosition(boatCoordinates.stern)
 
@@ -26,11 +26,11 @@ class Player {
 
                 ships[ship.size()] = ships[ship.size()] - 1
 
-                return true
+                return field
             }
         }
 
-        false
+        return null
     }
 
     private Collection<Integer> getShipPositions(int bow, int stern) {
@@ -89,5 +89,17 @@ class Player {
             case WATER: field[pos] = MISS; return MISS
             default: return field[pos]
         }
+    }
+
+    def setShotResult(Map<String, String> fireCoordinate, FieldState fieldState) {
+        final int pos = calculatePosition(shotCoordinate)
+
+        oppositeField.put(pos, fieldState)
+    }
+
+    boolean allShipsPlaced() {
+        ships.values().inject(0) { result, shipCount ->
+            result + shipCount
+        } == 0
     }
 }

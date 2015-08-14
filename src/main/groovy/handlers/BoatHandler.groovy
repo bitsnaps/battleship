@@ -2,19 +2,13 @@ package handlers
 
 import com.fasterxml.jackson.databind.JsonNode
 import groovy.json.JsonSlurper
+import model.FieldState
 import model.Game
-import model.Player
-import ratpack.exec.Promise
 import ratpack.handling.Context
 import ratpack.handling.Handler
 
-import static ratpack.jackson.Jackson.jsonNode
-
 import static groovy.json.JsonOutput.toJson
 
-/**
- * Created by sven on 11.08.15.
- */
 class BoatHandler implements Handler {
 
     private final JsonSlurper slurper = new JsonSlurper()
@@ -29,14 +23,12 @@ class BoatHandler implements Handler {
             final String playerId = ctx.request.headers.get("playerId")
             final Game game = ctx.get(Game)
 
-            final Player player = game.playerBy(playerId)
-            if (player.placeBoat(boatCoordinates)) {
-                ctx.response.send(toJson(player.field))
+            final Map<Integer, FieldState> field = game.placeBoat(boatCoordinates, playerId)
+            if (field) {
+                ctx.response.send(toJson(field))
             } else {
                 ctx.response.status(409).send()
             }
         }
-
-
     }
 }

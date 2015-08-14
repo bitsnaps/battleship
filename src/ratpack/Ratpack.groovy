@@ -1,5 +1,6 @@
 import handlers.BoatHandler
 import handlers.ConnectHandler
+import handlers.GameHandler
 import handlers.ShootingHandler
 import model.Game
 import modules.GameModule
@@ -27,11 +28,15 @@ ratpack {
       next(Registry.single(Game, game))
     }
 
-    post("connect", new ConnectHandler())
+    post('connect', new ConnectHandler())
 
-    post("ship", new BoatHandler())
+    post('ship', new BoatHandler())
 
-    post("shot", new ShootingHandler())
+    post('shot', new ShootingHandler())
+
+    //get('/game/field', new GameHandler())
+
+    get('turn', new GameHandler())
 
 
   }

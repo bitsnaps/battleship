@@ -8,9 +8,6 @@ import ratpack.handling.Handler
 
 import static groovy.json.JsonOutput.toJson
 
-/**
- * Created by sven on 11.08.15.
- */
 @Slf4j
 class ConnectHandler implements Handler {
     @Override
