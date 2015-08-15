@@ -29,4 +29,9 @@ class FullGameSpec extends Specification {
         then: 'each player will have a unique playerId'
         player1.playerId && player2.playerId && (player2.playerId != player1.playerId)
     }
+
+    def "should be no players' turn before placement is complete"() {
+        expect: "it should be nobody's turn"
+        ([player1, player2].collect { it.poll() }).inject(true) { acc, val -> acc && !val['myTurn'] }
+    }
 }

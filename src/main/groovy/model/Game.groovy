@@ -6,7 +6,7 @@ import groovy.transform.ToString
 class Game {
     String currentPlayerId = null
     //Erklärung Notation Map - Collectionhandling
-    final Map<String,Player> game = [:]
+    final Map<String, Player> game = [:]
 
     Player playerBy(String id) {
         game.find { it.id == id }
@@ -16,7 +16,7 @@ class Game {
         game.find { it.id != id }
     }
 
-    FieldState shootAt(Map<String,String> fireCoordinate, String shooterId) {
+    FieldState shootAt(Map<String, String> fireCoordinate, String shooterId) {
         final Player opponent = oppositePlayer(shooterId)
         final Player shooter = playerBy(shooterId)
 
@@ -29,7 +29,7 @@ class Game {
 
     Map<Integer, FieldState> placeBoat(Map<String, Map<String, String>> boatCoordinates, String playerId) {
         final Player player = playerBy(playerId)
-        if(player) {
+        if (player) {
             final map = player.placeBoat(boatCoordinates)
 
             if (allShipsArePlaced()) {
@@ -45,8 +45,12 @@ class Game {
 
     boolean allShipsArePlaced() {
         game.values().size() == 2 &&
-        game.values().inject(true) { result, pl ->
-            result && pl.allShipsPlaced()
-        }
+                game.values().inject(true) { result, pl ->
+                    result && pl.allShipsPlaced()
+                }
+    }
+
+    boolean myTurn(playerId) {
+        currentPlayerId == null ? false : currentPlayerId == playerId
     }
 }

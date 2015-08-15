@@ -10,6 +10,7 @@ import static groovy.json.JsonOutput.toJson
 class Player {
     private final static String CONNECT = 'connect'
     private final static String SHIP = 'ship'
+    private final static String POLLING = 'turn'
     private final static JsonSlurper jsonSlurper = new JsonSlurper()
     String playerId
 
@@ -32,6 +33,19 @@ class Player {
 
         assert playerId
 
+        result
+    }
+
+    Map poll() {
+        assert playerId
+        client.requestSpec { requestSpec ->
+            requestSpec.headers.set('playerId', playerId)
+        }
+        ReceivedResponse response = client.get(POLLING)
+        assert response.statusCode == 200
+
+        Map result = jsonSlurper.parse(response.body.inputStream)
+        assert result.myTurn != null
         result
     }
 
