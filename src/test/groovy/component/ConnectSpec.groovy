@@ -20,7 +20,7 @@ class ConnectSpec extends Specification {
         post('connect')
 
         then:
-        response.statusCode == 200
+        response.statusCode == 201
 
         and:
         jsonSlurper.parse(response.body.inputStream)['playerId'] != null
@@ -36,7 +36,7 @@ class ConnectSpec extends Specification {
         String player2Id = jsonSlurper.parse(response.body.inputStream)['playerId']
 
         then:
-        response.statusCode == 200
+        response.statusCode == 201
 
         and:
         (player2Id != null) && (player1Id != player2Id)
