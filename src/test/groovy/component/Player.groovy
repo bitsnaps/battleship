@@ -1,5 +1,6 @@
 package component
 
+import groovy.json.JsonSlurper
 import ratpack.http.client.ReceivedResponse
 import ratpack.test.http.TestHttpClient
 
@@ -9,11 +10,29 @@ import static groovy.json.JsonOutput.toJson
 class Player {
     private final static String CONNECT = 'connect'
     private final static String SHIP = 'ship'
+    private final static JsonSlurper jsonSlurper = new JsonSlurper()
+    String playerId
 
     TestHttpClient client
 
-    ReceivedResponse connect() {
-        client.post(CONNECT)
+    /**
+     * Safely connects the player to the game.
+     * Asserts that player has not previously connected to the game, that the return code is 201 and a playerId is supplied
+     * @return Map containing the response body parsed from JSON
+     */
+    Map connect() {
+        assert !playerId
+
+        ReceivedResponse response = client.post(CONNECT)
+
+        assert response.statusCode == 201
+
+        Map result = jsonSlurper.parse(response.body.inputStream)
+        playerId = result.playerId
+
+        assert playerId
+
+        result
     }
 
     /**
@@ -22,13 +41,13 @@ class Player {
      * @param stern e.g. "d2"
      * @return the response object
      */
-    ReceivedResponse place(String bow, String stern){
-        Map<String,Map<String,String>> coordinates = [bow:[y: "${bow[0]}", x:"${bow.substring(1)}"],stern:[y: "${ster[0]}", x:"${ster.substring(1)}"]]
+    ReceivedResponse place(String bow, String stern) {
+        Map<String, Map<String, String>> coordinates = [bow: [y: "${bow[0]}", x: "${bow.substring(1)}"], stern: [y: "${ster[0]}", x: "${ster.substring(1)}"]]
 
         place coordinates
     }
 
-    ReceivedResponse place(Map<String,Map<String, String>> coordinates) {
+    ReceivedResponse place(Map<String, Map<String, String>> coordinates) {
         client.requestSpec { requestSpec ->
             requestSpec.body.text(
                     toJson(coordinates))

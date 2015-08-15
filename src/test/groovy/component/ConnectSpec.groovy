@@ -7,7 +7,6 @@ import ratpack.test.http.TestHttpClient
 import spock.lang.Specification
 import spock.lang.Stepwise
 
-@Stepwise
 class ConnectSpec extends Specification {
     ServerBackedApplicationUnderTest aut = new GroovyRatpackMainApplicationUnderTest()
     @Delegate
