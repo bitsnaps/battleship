@@ -5,11 +5,13 @@ import handlers.ShootingHandler
 import model.Game
 import modules.GameModule
 import ratpack.groovy.template.MarkupTemplateModule
+import ratpack.groovy.template.TextTemplateModule
 import ratpack.handling.RequestId
 import ratpack.jackson.guice.JacksonModule
 import ratpack.registry.Registry
 
 import static ratpack.groovy.Groovy.groovyMarkupTemplate
+import static ratpack.groovy.Groovy.groovyTemplate
 import static ratpack.groovy.Groovy.ratpack
 
 
@@ -19,6 +21,7 @@ ratpack {
   bindings {
     //.class wird ergänzt "Erklären"
     module(GameModule)
+    module TextTemplateModule, { TextTemplateModule.Config config -> config.staticallyCompile = true }
     module JacksonModule
   }
 
@@ -40,7 +43,11 @@ ratpack {
 
     get('turn', new GameHandler())
 
+    get {
+      render groovyTemplate("index.html", title: "Groovy Academy - Battleship-App")
+    }
 
+    fileSystem "public", { f -> f.files() }
   }
 
 

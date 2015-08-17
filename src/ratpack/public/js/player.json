@@ -1,0 +1,40 @@
+{
+  "id": "0815ABC",
+  "name": "Player 1",
+  "ships": [
+    {
+      "id": 2,
+      "name": "Schnellboot",
+      "size": 2,
+      "count": 5
+    },
+    {
+      "id": 3,
+      "name": "Aufklärer",
+      "size": 3,
+      "count": 4
+    },
+    {
+      "id": 4,
+      "name": "Fregatte",
+      "size": 4,
+      "count": 3
+    },
+    {
+      "id": 5,
+      "name": "Zerstörer",
+      "size": 5,
+      "count": 2
+    }
+  ],
+  "field": [
+    {"pos":4,"state":"S"},
+    {"pos":5,"state":"S"},
+    {"pos":14,"state":"S"},
+    {"pos":15,"state":"S"},
+    {"pos":28,"state":"S"},
+    {"pos":38,"state":"S"},
+    {"pos":48,"state":"S"}
+  ],
+  "oppositeField": []
+}

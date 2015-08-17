@@ -1,0 +1,25 @@
+.cell {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    padding: 2px;
+    margin: 1px;
+    border: 1px solid black;
+}
+
+.matrix {
+    display: block;
+    margin: 5px;
+}
+
+.W {
+    background: deepskyblue;
+}
+
+.S {
+    background: green;
+}
+
+.X {
+    background: red;
+}
