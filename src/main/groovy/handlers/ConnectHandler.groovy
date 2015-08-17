@@ -24,16 +24,6 @@ class ConnectHandler implements Handler {
 
     private Optional<String> connect(Game game) {
         //Groovy truth erklären bzw. Beispielaufgabe machen
-        if (game.game.player1) {
-            if (game.game.player2) {
-                Optional.empty()
-            } else {
-                game.game.player2 = new Player(name: "Player 2", id: "2abc", field: [:])
-                Optional.of(game.game.player2.id)
-            }
-        } else {
-            game.game.player1 = new Player(name: "Player 1", id: "1xyz", field: [:])
-            Optional.of(game.game.player1.id)
-        }
+        game.addPlayer()
     }
 }

@@ -6,6 +6,7 @@ import model.Game
 import modules.GameModule
 import ratpack.groovy.template.MarkupTemplateModule
 import ratpack.handling.RequestId
+import ratpack.jackson.guice.JacksonModule
 import ratpack.registry.Registry
 
 import static ratpack.groovy.Groovy.groovyMarkupTemplate
@@ -18,6 +19,7 @@ ratpack {
   bindings {
     //.class wird ergänzt "Erklären"
     module(GameModule)
+    module JacksonModule
   }
 
   handlers {

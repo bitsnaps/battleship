@@ -15,11 +15,11 @@ class BoatHandler implements Handler {
 
     @Override
     void handle(Context ctx) throws Exception {
-
         ctx.parse(JsonNode).onError {
             ctx.response.status(500).send()
         } then { JsonNode jsonNode ->
-            final Map<String, Map<String, String>> boatCoordinates = slurper.parseText(jsonNode.asText())
+
+            final Map<String, Map<String, String>> boatCoordinates = slurper.parseText(jsonNode.toString())
             final String playerId = ctx.request.headers.get("playerId")
             final Game game = ctx.get(Game)
 

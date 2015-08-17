@@ -60,12 +60,10 @@ class Player {
     }
 
     private boolean canShipBePlaced(Collection<Integer> ship) {
-        Collection col = ship.find {
-            field[it] != null
-            //Erweitern um Schiffe dürfen sich nicht berühren
-        }
+        Collection<Integer> col = ship.removeIf{field[it]!=null}
+        col.size()==ship.size()
+        //erweitern um ist benachbart zu einem shiff
 
-        col.isEmpty()
     }
 
     private isValidShipSize(Collection<Integer> ship){
@@ -77,7 +75,7 @@ class Player {
         final String y = coordinate.y
 
         final String row = "abcdefghij"
-        row.indexOf(y) * 10 + x.toInteger()
+        row.indexOf(y) * 10 + x.toInteger()-1
     }
 
     FieldState shotAt(Map<String, String> shotCoordinate) {

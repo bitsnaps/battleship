@@ -1,6 +1,8 @@
 package component
 
 import groovy.json.JsonSlurper
+import groovy.transform.TailRecursive
+import model.FieldState
 import ratpack.http.client.ReceivedResponse
 import ratpack.test.http.TestHttpClient
 
@@ -11,6 +13,10 @@ class Player {
     private final static String CONNECT = 'connect'
     private final static String SHIP = 'ship'
     private final static String POLLING = 'turn'
+    private final static String FIRE = 'turn'
+    String victoryCounter = 30
+
+    private final static Random random = new Random()
     private final static JsonSlurper jsonSlurper = new JsonSlurper()
     String playerId
 
@@ -36,6 +42,10 @@ class Player {
         result
     }
 
+    /**
+     * Polls the current game state resource
+     * @return
+     */
     Map poll() {
         assert playerId
         client.requestSpec { requestSpec ->
@@ -46,9 +56,86 @@ class Player {
 
         Map result = jsonSlurper.parse(response.body.inputStream)
         assert result.myTurn != null
+        assert result.gamePhase != null
+        assert result.availableShips != null
         result
     }
 
+    /**
+     * Deploys complete Fleet in a default pattern
+     */
+    def deployFleet() {
+        [
+                [bow: 'a1', stern: 'a5'],
+                [bow: 'c1', stern: 'c4'],
+                [bow: 'e1', stern: 'e4'],
+                [bow: 'g1', stern: 'g3'],
+                [bow: 'i1', stern: 'i3'],
+                [bow: 'a7', stern: 'i9'],
+                [bow: 'c8', stern: 'c9'],
+                [bow: 'e8', stern: 'e9'],
+                [bow: 'g8', stern: 'g9'],
+                [bow: 'i8', stern: 'i9']
+        ].each {
+            ReceivedResponse response = place(it.bow, it.stern)
+            assert response.statusCode == 200
+        }
+    }
+
+    boolean isActive() {
+        poll()['myTurn']
+    }
+
+    FieldState shootRandomly() {
+        Map<String, String> unshelledCoordinates = findUnshelledCoordinates(poll())
+        Optional<Map> shellingResult = shootAt(unshelledCoordinates)
+
+        assert shellingResult.present
+
+        return shellingResult.get()
+    }
+
+    @TailRecursive
+    Map<String, String> findUnshelledCoordinates(Map pollingResult, int counter = 0) {
+        assert counter < 100
+
+        String x
+        String y
+        y = ['abcdefghij'].get(random.nextInt(10))
+        x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].get(random.nextInt(10))
+
+        pollingResult['field'] == FieldState.UNKNOWN ? [x: x, y: y] : findUnshelledCoordinates(pollingResult, counter++)
+    }
+
+    /**
+     * This method prevents from shooting twice at the same set of coordinates
+     * @param coordinates
+     * @return
+     */
+    Optional<FieldState> shootAt(Map<String, String> coordinates) {
+        Map pollingResult = poll()
+        if (pollingResult['field'] == FieldState.UNKNOWN) {
+            ReceivedResponse response = client.put("$FIRE/${coordinates.y}/${coordinates.x}")
+            adjustVictoryCounter(extractFieldState(response))
+        } else {
+            Optional.of(pollingResult['field'])
+        }
+    }
+
+    Optional<FieldState> extractFieldState(ReceivedResponse response) {
+        response.statusCode == 200 ?
+                Optional.of(FieldState.valueOf(jsonSlurper.parse(response.body.inputStream)['shellingResult'])) :
+                Optional.empty()
+    }
+
+    Optional<FieldState> adjustVictoryCounter(Optional<FieldState> fieldState) {
+        if (fieldState.present) {
+            if (fieldState.get() != FieldState.HIT || fieldState.get() != FieldState.SUNK) {
+                victoryCounter = victoryCounter - 1
+            }
+        }
+        fieldState
+    }
     /**
      * Coordinates to place a ship between
      * @param bow e.g. "a2"
@@ -56,7 +143,7 @@ class Player {
      * @return the response object
      */
     ReceivedResponse place(String bow, String stern) {
-        Map<String, Map<String, String>> coordinates = [bow: [y: "${bow[0]}", x: "${bow.substring(1)}"], stern: [y: "${ster[0]}", x: "${ster.substring(1)}"]]
+        Map<String, Map<String, String>> coordinates = [bow: [y: "${bow[0]}", x: "${bow.substring(1)}"], stern: [y: "${stern[0]}", x: "${stern.substring(1)}"]]
 
         place coordinates
     }
@@ -65,6 +152,8 @@ class Player {
         client.requestSpec { requestSpec ->
             requestSpec.body.text(
                     toJson(coordinates))
+            requestSpec.headers.set('content-type', 'application/json')
+            requestSpec.headers.set('playerId', playerId)
         }
         client.post(SHIP)
     }
