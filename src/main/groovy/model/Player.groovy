@@ -6,11 +6,13 @@ class Player {
     String name
     String id
     //Players own field
+    //a1 is 0
     Map<Integer, FieldState> field = [:]
     // Field of opposite player
-    Map<Integer,FieldState> oppositeField = [:]
+    Map<Integer, FieldState> oppositeField = [:]
     //Size : Count
-    Map<Integer, Integer> ships = [5:1, 4:2, 3:3, 2:4]
+    Map<Integer, Integer> availableShips = [5: 1, 4: 2, 3: 3, 2: 4]
+    int shipCounter = 30
 
     Map<Integer, FieldState> placeBoat(Map<String, Map<String, String>> boatCoordinates) {
         final bow = calculatePosition(boatCoordinates.bow)
@@ -24,13 +26,17 @@ class Player {
                     field.put(it, SHIP)
                 }
 
-                ships[ship.size()] = ships[ship.size()] - 1
+                availableShips[ship.size()] = availableShips[ship.size()] - 1
 
                 return field
             }
         }
 
         return null
+    }
+
+    boolean hasShipsLeft(){
+        shipCounter>0
     }
 
     private Collection<Integer> getShipPositions(int bow, int stern) {
@@ -60,14 +66,12 @@ class Player {
     }
 
     private boolean canShipBePlaced(Collection<Integer> ship) {
-        Collection<Integer> col = ship.removeIf{field[it]!=null}
-        col.size()==ship.size()
+        ship.every { field[it] == null }
         //erweitern um ist benachbart zu einem shiff
-
     }
 
-    private isValidShipSize(Collection<Integer> ship){
-        ship.size() >= 2 && ship.size() <= 5 && ships[ship.size()] > 0
+    private isValidShipSize(Collection<Integer> ship) {
+        ship.size() >= 2 && ship.size() <= 5 && availableShips[ship.size()] > 0
     }
 
     private int calculatePosition(Map<String, String> coordinate) {
@@ -75,7 +79,7 @@ class Player {
         final String y = coordinate.y
 
         final String row = "abcdefghij"
-        row.indexOf(y) * 10 + x.toInteger()-1
+        row.indexOf(y) * 10 + x.toInteger() - 1
     }
 
     FieldState shotAt(Map<String, String> shotCoordinate) {
@@ -83,21 +87,56 @@ class Player {
         final int pos = calculatePosition(shotCoordinate)
 
         switch (field.getOrDefault(pos, WATER)) {
-            case SHIP: return HIT //prüfen ob Schiff gesunken
-            case WATER: field[pos] = MISS; return MISS
-            default: return field[pos]
+            case SHIP:
+                //als hit markieren
+                shipCounter--
+                field[pos] = HIT
+                makeSunk(pos)
+                break
+            case WATER:
+                field[pos] = MISS;
+                break
+        }
+        return field[pos]
+    }
+
+
+    void makeSunk(int pos) {
+        Set<Integer> startSet = new HashSet<>()
+        startSet.add(pos)
+        Set<Integer> completeShip = collectAllNonWaterNeighbours(pos, startSet)
+
+        if (completeShip.every { field[it] == HIT }) {
+            completeShip.each { field[it] = SUNK }
         }
     }
 
+    Set<Integer> collectAllNonWaterNeighbours(int position, Set<Integer> knownNeighbours) {
+        Set<Integer> neighbors = new Neighbors(position).all
+
+        Set<Integer> newfoundNonWaterNeighbours = neighbors.findAll {
+            (field[it] == HIT || field[it] == SHIP) && !knownNeighbours.contains(it)
+        }
+
+        newfoundNonWaterNeighbours.each {
+            knownNeighbours.add(it)
+            knownNeighbours.addAll(collectAllNonWaterNeighbours(it, knownNeighbours))
+        }
+
+        knownNeighbours
+    }
+
     def setShotResult(Map<String, String> fireCoordinate, FieldState fieldState) {
-        final int pos = calculatePosition(shotCoordinate)
+        final int pos = calculatePosition(fireCoordinate)
 
         oppositeField.put(pos, fieldState)
     }
 
     boolean allShipsPlaced() {
-        ships.values().inject(0) { result, shipCount ->
+        availableShips.values().inject(0) { result, shipCount ->
             result + shipCount
         } == 0
     }
+
+
 }

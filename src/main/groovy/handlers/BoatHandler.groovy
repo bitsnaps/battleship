@@ -2,8 +2,8 @@ package handlers
 
 import com.fasterxml.jackson.databind.JsonNode
 import groovy.json.JsonSlurper
-import model.FieldState
 import model.Game
+import model.State
 import ratpack.handling.Context
 import ratpack.handling.Handler
 
@@ -23,9 +23,9 @@ class BoatHandler implements Handler {
             final String playerId = ctx.request.headers.get("playerId")
             final Game game = ctx.get(Game)
 
-            final Map<Integer, FieldState> field = game.placeBoat(boatCoordinates, playerId)
-            if (field) {
-                ctx.response.send(toJson(field))
+            State state = game.placeBoat(boatCoordinates, playerId)
+            if (state) {
+                ctx.response.send(toJson(state))
             } else {
                 ctx.response.status(409).send()
             }

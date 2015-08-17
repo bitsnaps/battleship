@@ -34,7 +34,7 @@ ratpack {
 
     post('ship', new BoatHandler())
 
-    post('shot', new ShootingHandler())
+    put('shoot', new ShootingHandler())
 
     //get('/game/field', new GameHandler())
 

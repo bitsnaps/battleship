@@ -14,10 +14,6 @@ class GameHandler implements Handler {
         final String playerId = ctx.request.headers.get('playerId')
         final Game game = ctx.get(Game)
 
-        ctx.response.send(toJson([
-                myTurn   : game.myTurn(playerId),
-                gamePhase: game.gamePhase,
-                availableShips:game.playerBy(playerId).ships
-        ]))
+        ctx.response.send(toJson(game.getState(playerId)))
     }
 }

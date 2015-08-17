@@ -1,5 +1,5 @@
 package model
 
 enum GamePhase {
-    PLACEMENT, SHOOTOUT, VICTORY, LOST
+    PLACEMENT, SHOOTOUT, FINISHED
 }

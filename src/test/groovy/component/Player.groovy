@@ -13,8 +13,10 @@ class Player {
     private final static String CONNECT = 'connect'
     private final static String SHIP = 'ship'
     private final static String POLLING = 'turn'
-    private final static String FIRE = 'turn'
-    String victoryCounter = 30
+    private final static String FIRE = 'shoot'
+    int victoryCounter = 30
+    int shotCount = 0
+    List<Map<String, String>> alreadyShelled = []
 
     private final static Random random = new Random()
     private final static JsonSlurper jsonSlurper = new JsonSlurper()
@@ -22,6 +24,7 @@ class Player {
 
     TestHttpClient client
 
+    ReceivedResponse lastShotResponse = null
     /**
      * Safely connects the player to the game.
      * Asserts that player has not previously connected to the game, that the return code is 201 and a playerId is supplied
@@ -66,16 +69,16 @@ class Player {
      */
     def deployFleet() {
         [
-                [bow: 'a1', stern: 'a5'],
-                [bow: 'c1', stern: 'c4'],
-                [bow: 'e1', stern: 'e4'],
-                [bow: 'g1', stern: 'g3'],
-                [bow: 'i1', stern: 'i3'],
-                [bow: 'a7', stern: 'i9'],
-                [bow: 'c8', stern: 'c9'],
-                [bow: 'e8', stern: 'e9'],
-                [bow: 'g8', stern: 'g9'],
-                [bow: 'i8', stern: 'i9']
+                [bow: 'a1', stern: 'a5'],//5
+                [bow: 'c1', stern: 'c4'],//4
+                [bow: 'e1', stern: 'e4'],//4
+                [bow: 'g1', stern: 'g3'],//3
+                [bow: 'i1', stern: 'i3'],//3
+                [bow: 'a7', stern: 'a9'],//3
+                [bow: 'c8', stern: 'c9'],//2
+                [bow: 'e8', stern: 'e9'],//2
+                [bow: 'g8', stern: 'g9'],//2
+                [bow: 'i8', stern: 'i9']//2
         ].each {
             ReceivedResponse response = place(it.bow, it.stern)
             assert response.statusCode == 200
@@ -83,7 +86,7 @@ class Player {
     }
 
     boolean isActive() {
-        poll()['myTurn']
+        Boolean.valueOf(poll()['myTurn'])
     }
 
     FieldState shootRandomly() {
@@ -99,12 +102,12 @@ class Player {
     Map<String, String> findUnshelledCoordinates(Map pollingResult, int counter = 0) {
         assert counter < 100
 
-        String x
-        String y
-        y = ['abcdefghij'].get(random.nextInt(10))
-        x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].get(random.nextInt(10))
+        String y = 'abcdefghij'[random.nextInt(10)]
+        String x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].get(random.nextInt(10))
 
-        pollingResult['field'] == FieldState.UNKNOWN ? [x: x, y: y] : findUnshelledCoordinates(pollingResult, counter++)
+        Map<String, String> coordinates = [x: String.valueOf(x), y: y]
+
+        !alreadyShelled.contains(coordinates) ? coordinates : findUnshelledCoordinates(pollingResult, counter++)
     }
 
     /**
@@ -113,13 +116,34 @@ class Player {
      * @return
      */
     Optional<FieldState> shootAt(Map<String, String> coordinates) {
-        Map pollingResult = poll()
-        if (pollingResult['field'] == FieldState.UNKNOWN) {
-            ReceivedResponse response = client.put("$FIRE/${coordinates.y}/${coordinates.x}")
-            adjustVictoryCounter(extractFieldState(response))
+        shotCount++
+        if (!alreadyShelled.contains(coordinates)) {
+            client.requestSpec { requestSpec ->
+                requestSpec.body.text(
+                        toJson(coordinates))
+                requestSpec.headers.set('content-type', 'application/json')
+                requestSpec.headers.set('playerId', playerId)
+            }
+            lastShotResponse = client.put("$FIRE")
+            if(lastShotResponse.statusCode==200){
+                alreadyShelled.add(coordinates)
+            }
+            adjustVictoryCounter(extractFieldState(lastShotResponse))
         } else {
-            Optional.of(pollingResult['field'])
+            Optional.of(fieldStateAt(coordinates))
         }
+    }
+
+    FieldState fieldStateAt(Map<String, String> coordinates) {
+        Integer position = calculatePosition(coordinates.x, coordinates.y)
+        String fieldState = poll()['field']["$position"]
+        fieldState ? FieldState.valueOf(fieldState) : FieldState.WATER
+        FieldState.valueOf(poll()['field']["$position"])
+    }
+
+    Integer calculatePosition(String x, String y) {
+        String yAxis = 'abcdefghij'
+        Integer.valueOf(x) - 1 + (yAxis.indexOf(y) * 10)
     }
 
     Optional<FieldState> extractFieldState(ReceivedResponse response) {
@@ -130,7 +154,7 @@ class Player {
 
     Optional<FieldState> adjustVictoryCounter(Optional<FieldState> fieldState) {
         if (fieldState.present) {
-            if (fieldState.get() != FieldState.HIT || fieldState.get() != FieldState.SUNK) {
+            if (fieldState.get() == FieldState.HIT || fieldState.get() == FieldState.SUNK) {
                 victoryCounter = victoryCounter - 1
             }
         }

@@ -28,32 +28,35 @@ class Game {
 
         final FieldState state = opponent.shotAt(fireCoordinate)
         shooter.setShotResult(fireCoordinate, state)
+
+        if(!opponent.hasShipsLeft()){
+            gamePhase= GamePhase.FINISHED
+        }
+
         currentPlayerId = opponent.id
 
         state
     }
 
-    Map<Integer, FieldState> placeBoat(Map<String, Map<String, String>> boatCoordinates, String playerId) {
+    State placeBoat(Map<String, Map<String, String>> boatCoordinates, String playerId) {
         final Player player = playerBy(playerId)
         if (player) {
             final map = player.placeBoat(boatCoordinates)
 
             if (allShipsArePlaced()) {
                 //Now let the game start
-                currentPlayerId = game.player1.id
+                gamePhase=GamePhase.SHOOTOUT
+                currentPlayerId = game.first().id
             }
 
-            map
+            getState(playerId)
         } else {
             null
         }
     }
 
     boolean allShipsArePlaced() {
-        game.values().size() == 2 &&
-                game.values().inject(true) { result, pl ->
-                    result && pl.allShipsPlaced()
-                }
+        game.size() == 2 && game.every { it.allShipsPlaced() }
     }
 
     boolean myTurn(playerId) {
@@ -72,6 +75,19 @@ class Game {
                     game.add(new Player(name: playerName, id: playerId, field: [:]))
                     game.last().id
                 }()
+        )
+    }
+
+    State getState(String playerId){
+        Player player = playerBy(playerId)
+        new State(
+                playerId: playerId,
+                myTurn: myTurn(playerId),
+                gamePhase: gamePhase,
+                availableShips: player.availableShips,
+                field:player.field,
+                isVictory: player.hasShipsLeft(),
+                undamagedShips: player.shipCounter
         )
     }
 }

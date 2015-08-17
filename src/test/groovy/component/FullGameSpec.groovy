@@ -25,6 +25,7 @@ class FullGameSpec extends Specification {
     Player player2 = new Player(client: TestHttpClient.testHttpClient(aut))
 
     List<Player> players = [player2, player1]
+
     def 'connect phase'() {
         when: 'two players connect to the game'
         player1.connect()
@@ -75,17 +76,18 @@ class FullGameSpec extends Specification {
         Collection pollingResults = players.collect { it.poll() }
 
         expect: "exactly one player can shoot"
-        pollingResults.find { it['myTurn' == true] } && pollingResults.find {
-            it['myTurn'] == false
-        } && pollingResults.size() == 2
+        players.find { it.isActive() }
+        players.find { !it.isActive() }
+        pollingResults.size() == 2
     }
 
     def 'should receive an error if the wrong player shoots'() {
-        given: 'a polling result'
-        Collection pollingResults = players.collect { it.poll() }
+        given: 'an player who cannot shoot'
+        Player passivePlayer = players.find { !it.isActive() }
 
         expect:
-        false
+        !passivePlayer.shootAt([x: '3', y: 'a']).isPresent()
+        passivePlayer.lastShotResponse.statusCode == 418
     }
 
     def 'should receive a MISS if shot misses'() {
@@ -98,7 +100,7 @@ class FullGameSpec extends Specification {
 
     def 'should receive a HIT if shot hits'() {
         when:
-        FieldState shellingResult = activePlayer.shootAt([x: '1', y: 'a']).get()
+        FieldState shellingResult = activePlayer.shootAt([x: '8', y: 'g']).get()
 
         then:
         shellingResult == FieldState.HIT
@@ -106,29 +108,29 @@ class FullGameSpec extends Specification {
 
     def 'should reveive a SUNK if ship is sunk'() {
         given:
-        FieldState shellingResult = activePlayer.shootAt([x: '1', y: 'a']).get()
+        FieldState shellingResult = activePlayer.shootAt([x: '8', y: 'g']).get()
         assert shellingResult == FieldState.HIT
 
         when:
-        shellingResult = players.find { it.isActive() }.shootAt([x: '2', y: 'a']).get()
+        shellingResult = players.find { it.isActive() }.shootAt([x: '9', y: 'g']).get()
 
         then:
         shellingResult == FieldState.SUNK
     }
 
     def 'should be WON or LOST at the end of the game respectively'() {
-        when:'a game is played until the end'
-        while(players.every{it.victoryCounter>0}){
+        when: 'a game is played until the end'
+        while (players.every { it.poll()['undamagedShips'] > 0 }) {
             activePlayer.shootRandomly()
         }
 
         then:
-        players.find{it.victoryCounter>0}.poll()['gamePhase']==GamePhase.LOST
-        players.find{it.victoryCounter==0}.poll()['gamePhase']==GamePhase.VICTORY
+        players.find {it.poll()['undamagedShips'] > 0 }.poll()['isVictory'] == true
+        players.find {it.poll()['undamagedShips'] == 0 }.poll()['isVictory'] == false
     }
     //NOTE: explain closure as last parameter explain 'as'
 
-    Player getActivePlayer(){
+    Player getActivePlayer() {
         [player1, player2].find { it.isActive() }
     }
 }

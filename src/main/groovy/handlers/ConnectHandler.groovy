@@ -16,7 +16,7 @@ class ConnectHandler implements Handler {
         final Optional<String> id = connect(game)
         log.error(game.toString())
         if(id.present) {
-            ctx.response.status(201).send(toJson([playerId: id.get()]))
+            ctx.response.status(201).send(toJson(game.getState(id.get())))
         } else {
             ctx.response.status(409).send(toJson([playerId: "full"]))
         }

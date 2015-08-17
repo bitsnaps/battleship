@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode
 import groovy.json.JsonSlurper
 import model.FieldState
 import model.Game
+import model.GamePhase
 import ratpack.handling.Context
 import ratpack.handling.Handler
 
@@ -15,16 +16,20 @@ class ShootingHandler implements Handler {
 
     @Override
     void handle(Context ctx) throws Exception {
-
         ctx.parse(JsonNode).onError {
             ctx.response.status(500).send()
         } then { JsonNode jsonNode ->
-            final Map<String,String> fireCoordinate = slurper.parseText(jsonNode.asText())
+            final Map<String, String> fireCoordinate = slurper.parseText(jsonNode.toString())
             final String playerId = ctx.request.headers.get('playerId')
+
             final Game game = ctx.get(Game)
 
-            final Map<Integer, FieldState> oppositeField = game.shootAt(fireCoordinate, playerId)
-            ctx.response.status(200).contentType('application/json').send(toJson(oppositeField))
+            if (game.myTurn(playerId) && game.gamePhase == GamePhase.SHOOTOUT) {
+                FieldState fieldState = game.shootAt(fireCoordinate, playerId)
+                ctx.response.status(200).contentType('application/json').send(toJson([shellingResult: fieldState]))
+            } else {
+                ctx.response.status(418).send()
+            }
         }
     }
 }
