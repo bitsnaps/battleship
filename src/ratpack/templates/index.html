@@ -8,28 +8,30 @@
   <body>
     <div class="container" ng-controller="BoatsCtrl">
       <p>
-        <div ng-show="player.playerId">Deine PlayerId: {{player.playerId}}</div>
-        <a href class="btn btn-default btn-sm" ng-click="player.connect();">Connect</a>
+        <div>PlayerId: {{player.playerId}}</div>
+        <div>Du befindest Dich in der Spielphase: {{player.gamePhase}}</div>
+        <div ng-show="player.isInConnection()"><a href class="btn btn-default btn-sm" ng-click="player.connect();">Connect</a></div>
       </p>
-      <form>
+      <form ng-show="player.isOpenToFire()">
         <input type="text" ng-model="coordinates"><a href class="btn btn-default btn-sm" ng-click="player.fire(coordinates);">Feuer</a>
       </form>
 
-      <table class="table" ng-show="player.getShips()">
-        <tr ng-repeat="(key, value) in player.getShips()">
-          <td>Groeße des Schiffes: {{key}}</td>
-          <td>Anzahl der Schiffe: {{value}}</td>
+      <table class="table">
+        <tr ng-repeat="ship in player.availableShips">
+          <td>Type des Schiffes: {{ship.type}}</td>
+          <td>Größe des Schiffes: {{ship.size}}</td>
+          <td>Verfügbare Anzahl der Schiffe: {{ship.count}}</td>
         </tr>
       </table>
 
       <div style="display: block; float:left; margin-top: -4px; margin-right: 50px;">
-        <div class="matrix" ng-repeat="row in player.getRows()">
-          <div ng-repeat="cell in player.getRow(row)" class="cell {{cell.state}}" title="{{cell.pos}}">{{cell.state}}</div>
+        <div class="matrix" ng-repeat="row in player.field">
+          <div ng-repeat="cell in row" class="cell {{cell.state}}" title="{{cell.pos}}">{{cell.state}}</div>
         </div>
       </div>
       <div style="display:block; margin: 0px;">
-        <div class="matrix" ng-repeat="row in player.getRows()">
-          <div ng-repeat="cell in player.getRow(row)" class="cell {{cell.state}}" title="{{cell.pos}}">{{cell.state}}</div>
+        <div class="matrix" ng-repeat="row in player.field">
+          <div ng-repeat="cell in row" class="cell {{cell.state}}" title="{{cell.pos}}">{{cell.state}}</div>
         </div>
       </div>
 

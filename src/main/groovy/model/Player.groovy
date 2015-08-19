@@ -39,6 +39,17 @@ class Player {
         shipCounter>0
     }
 
+    List<Ship> availableShipsList() {
+        final List<Ship> ships = new ArrayList<Ship>();
+        availableShips.each { key, value ->
+            ships.add(new Ship(
+                type: ShipType.typeOfSize(key.toInteger()),
+                size: key.toInteger(),
+                count: value))
+        }
+        ships
+    }
+
     private Collection<Integer> getShipPositions(int bow, int stern) {
 
         final boolean horizontal = isHorizontal(bow, stern)
@@ -67,7 +78,7 @@ class Player {
 
     private boolean canShipBePlaced(Collection<Integer> ship) {
         ship.every { field[it] == null }
-        //erweitern um ist benachbart zu einem shiff
+        //erweitern um ist benachbart zu einem schiff
     }
 
     private isValidShipSize(Collection<Integer> ship) {

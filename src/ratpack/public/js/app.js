@@ -7,18 +7,12 @@ angular.module('battleshipApp', [])
             gamePhase = '',
             availableShips = [],
             field = [],
+            oppositeField = [],
+            rows = [0,1,2,3,4,5,6,7,8,9],
             isVictory = false,
             undamagedShips = 30;
 
         return {
-            getShips: function() {
-                console.log("getShips called");
-                return availableShips;
-            },
-            getField: function() {
-                console.log("getField called");
-                return field;
-            },
             fire: function(coordinate) {
                 console.log('Try to shoot on a ship');
                 if(playerId != '' && coordinate != '') {
@@ -39,30 +33,70 @@ angular.module('battleshipApp', [])
                 }
                 console.log("Coordinate: ",coordinate);
             },
-            getRows: function() {
-                console.log("getRows called");
-                return [0,1,2,3,4,5,6,7,8,9];
+            isOpenToFire: function() {
+                return gamePhase == 'SHOOTOUT';
             },
-            getRow: function(index) {
-                console.log("getRow called");
-                var start, end, row;
-                start = index*10;
-                row = [];
+            isInConnection: function() {
+                console.log("PlayerId: [" + playerId + "], gamePhase: [" + gamePhase + "]");
+                return (playerId == '' && gamePhase == '');
+            },
+            connect: function() {
+                if (this.isInConnection()) {
+                    console.log('Try to connect');
+                    var that = this,
+                        req = {
+                        method: 'POST',
+                        url: 'http://localhost:5050/connect',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        data: {test: 'test'}
+                    };
+                    console.log("Req-Config: ", req);
 
-                for (var i = 0; i < 10; i++) {
-                    var found, pos = start + i;
-                    found = field.forEach(function(currentValue) {
-                        if(currentValue.pos === pos) {
-                            return currentValue;
-                        }
-                    });
-                    if (found) {
-                        row[i] = found
-                    } else {
-                        row[i] = {"pos": start + i + 1, "state": "W"}
-                    }
+                    $http.post(req.url, req.data, req).then(
+                        function (result) {
+                            console.log('Start to set data: ', result.data);
+                            that.playerId = result.data.playerId;
+                            that.gamePhase = result.data.gamePhase;
+                            that.myTurn = result.data.myTurn;
+                            that.availableShips = result.data.availableShips;
+                            that.field = that.updateField(result.data.field);
+                            that.isVictory = result.data.isVictory;
+                            that.undamagedShips = result.data.undamagedShips;
+                            console.log('Data already set: ', that.field);
+                        }).catch(function (error) {
+                            console.log(error);
+                        });
+                } else {
+                    console.log("You are already connected!")
                 }
-                return row;
+            },
+            updateField: function(positions) {
+                var rows = [];
+                for (var x = 0; x < 10; x++) {
+
+                    var start, col;
+                    start = x * 10;
+                    col = [];
+
+                    for (var i = 0; i < 10; i++) {
+                        //var found, pos = start + i;
+                        //found = field.forEach(function (currentValue) {
+                        //    if (currentValue.pos === pos) {
+                        //        return currentValue;
+                        //    }
+                        //});
+                        //if (found) {
+                        //    row[i] = found
+                        //} else {
+                            col[i] = {"pos": start + i + 1, "state": "W"}
+                        //}
+                    }
+                    rows[x] = col;
+                }
+                console.log('Finish update field.');
+                return rows;
             },
             isWater: function(cell) {
                 return cell.state == 'W';
@@ -73,38 +107,10 @@ angular.module('battleshipApp', [])
             isHit: function(cell) {
                 return cell.state == 'X';
             },
-            connect: function() {
-                console.log('Try to connect');
-                var req = {
-                    method: 'POST',
-                    url: 'http://localhost:5050/connect',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    data: { test: 'test' }
-                };
-                console.log("Req-Config: ",req);
 
-                $http.post(req).then(
-                    function(result) {
-                        console.log('Start to set data');
-                        playerId = result.data.playerId;
-                        gamePhase = result.data.gamePhase;
-                        myTurn = result.data.myTurn;
-                        availableShips = result.data.availableShips;
-                        field = result.data.field;
-                        isVictory = result.data.isVictory;
-                        undamagedShips = result.data.undamagedShips;
-                        console.log('Data already set!');
-                        //How Angular knows that "model" data are set ?
-                    }, function(error) {
-                        console.log(error);
-                    }
-                );
-            }
         }
 
     })
-    .controller('BoatsCtrl', function($scope, Player) {
+    .controller('BoatsCtrl', function($scope, $http, Player) {
         $scope.player = Player;
     });

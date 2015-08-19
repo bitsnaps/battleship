@@ -7,7 +7,7 @@ class State {
     String playerId
     boolean myTurn
     GamePhase gamePhase
-    Map<Integer, Integer> availableShips
+    List<Ship> availableShips
     //starts with 0
     boolean isVictory = false
     Map<Integer, FieldState> field
