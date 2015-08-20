@@ -8,8 +8,8 @@
   <body>
     <div class="container" ng-controller="BoatsCtrl">
       <p>
-        <div>PlayerId: {{player.playerId}}</div>
-        <div>Du befindest Dich in der Spielphase: {{player.gamePhase}}</div>
+        <div>PlayerId: {{player.playerId()}}</div>
+        <div>Du befindest Dich in der Spielphase: {{player.gamePhase()}}</div>
         <div ng-show="player.isInConnection()"><a href class="btn btn-default btn-sm" ng-click="player.connect();">Connect</a></div>
       </p>
       <form ng-show="player.isOpenToFire()">
@@ -17,7 +17,7 @@
       </form>
 
       <table class="table">
-        <tr ng-repeat="ship in player.availableShips">
+        <tr ng-repeat="ship in player.ships()">
           <td>Type des Schiffes: {{ship.type}}</td>
           <td>Größe des Schiffes: {{ship.size}}</td>
           <td>Verfügbare Anzahl der Schiffe: {{ship.count}}</td>
@@ -25,12 +25,12 @@
       </table>
 
       <div style="display: block; float:left; margin-top: -4px; margin-right: 50px;">
-        <div class="matrix" ng-repeat="row in player.field">
+        <div class="matrix" ng-repeat="row in player.field()">
           <div ng-repeat="cell in row" class="cell {{cell.state}}" title="{{cell.pos}}">{{cell.state}}</div>
         </div>
       </div>
       <div style="display:block; margin: 0px;">
-        <div class="matrix" ng-repeat="row in player.field">
+        <div class="matrix" ng-repeat="row in player.field()">
           <div ng-repeat="cell in row" class="cell {{cell.state}}" title="{{cell.pos}}">{{cell.state}}</div>
         </div>
       </div>
