@@ -1,7 +1,10 @@
 package model
 
+import groovy.util.logging.Slf4j
+
 import static model.FieldState.*
 
+@Slf4j
 class Player {
     String name
     String id
@@ -55,11 +58,12 @@ class Player {
     }
 
     private Collection<Integer> getShipPositions(int bow, int stern) {
-
         final boolean horizontal = isHorizontal(bow, stern)
 
         (bow..stern).findAll {
-            horizontal || (it - bow % 10 == 0) // vertical
+            final boolean vertical = ((bow % 10) == (it % 10))
+
+            horizontal || vertical
         }
     }
 

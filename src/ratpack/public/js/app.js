@@ -17,9 +17,6 @@ angular.module('battleshipApp', [])
             _connect,
             _updateField,
             _findPosition,
-            _isWater,
-            _isShip,
-            _isHit,
             _placeBoat,
             _getCellContent;
 
@@ -134,18 +131,6 @@ angular.module('battleshipApp', [])
             return result;
         };
 
-        _isWater = function(cell) {
-            return cell.state == 'W';
-        };
-
-        _isShip = function(cell) {
-            return cell.state == 'S';
-        };
-
-        _isHit = function(cell) {
-            return cell.state == 'X';
-        };
-
         _placeBoat = function(bow,stern) {
             console.log("Bug: "+bow+" Heck: "+stern);
             var req = {
@@ -177,9 +162,6 @@ angular.module('battleshipApp', [])
             isInPlacement: _isInPlacement,
             connect: _connect,
             updateField: _updateField,
-            isWater: _isWater,
-            isShip: _isShip,
-            isHit: _isHit,
             placeBoat: _placeBoat,
             getCellContent: _getCellContent,
             playerId: function() { return _playerId; },
