@@ -86,11 +86,11 @@ class Player {
     }
 
     private int calculatePosition(Map<String, String> coordinate) {
-        final String x = coordinate.x
-        final String y = coordinate.y
+        final String x = coordinate.x.toLowerCase()
+        final String y = coordinate.y.toLowerCase()
 
         final String row = "abcdefghij"
-        row.indexOf(y) * 10 + x.toInteger() - 1
+        row.indexOf(x) * 10 + y.toInteger() - 1
     }
 
     FieldState shotAt(Map<String, String> shotCoordinate) {

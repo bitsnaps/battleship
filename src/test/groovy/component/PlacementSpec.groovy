@@ -10,14 +10,14 @@ class PlacementSpec extends Specification {
 
     ServerBackedApplicationUnderTest aut = new GroovyRatpackMainApplicationUnderTest()
 
-    Player player1 = new Player(client: TestHttpClient.testHttpClient(aut))
+    Player player1 = new Player(client: TestHttpClient.testHttpClient(aut), playerId: "")
     Player player2 = new Player(client: TestHttpClient.testHttpClient(aut))
 
     def 'POSTing to the placement resource without playerId header results in 401 Unauthorized'() {
         when:
-        ReceivedResponse response= player1.place(1, 'x')
+        ReceivedResponse response= player1.place('A1', 'A5')
 
         then:
-        response.statusCode==401
+        response.statusCode==409
     }
 }

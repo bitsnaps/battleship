@@ -102,8 +102,8 @@ class Player {
     Map<String, String> findUnshelledCoordinates(Map pollingResult, int counter = 0) {
         assert counter < 100
 
-        String y = 'abcdefghij'[random.nextInt(10)]
-        String x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].get(random.nextInt(10))
+        String x = 'abcdefghij'[random.nextInt(10)]
+        String y = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].get(random.nextInt(10))
 
         Map<String, String> coordinates = [x: String.valueOf(x), y: y]
 
@@ -142,8 +142,8 @@ class Player {
     }
 
     Integer calculatePosition(String x, String y) {
-        String yAxis = 'abcdefghij'
-        Integer.valueOf(x) - 1 + (yAxis.indexOf(y) * 10)
+        String xAxis = 'abcdefghij'
+        (xAxis.indexOf(x) * 10) + Integer.valueOf(y) - 1
     }
 
     Optional<FieldState> extractFieldState(ReceivedResponse response) {
@@ -167,7 +167,7 @@ class Player {
      * @return the response object
      */
     ReceivedResponse place(String bow, String stern) {
-        Map<String, Map<String, String>> coordinates = [bow: [y: "${bow[0]}", x: "${bow.substring(1)}"], stern: [y: "${stern[0]}", x: "${stern.substring(1)}"]]
+        Map<String, Map<String, String>> coordinates = [bow: [x: "${bow.substring(0,1)}", y: "${bow.substring(1,2)}"], stern: [x: "${stern.substring(0,1)}", y: "${stern.substring(1,2)}"]]
 
         place coordinates
     }

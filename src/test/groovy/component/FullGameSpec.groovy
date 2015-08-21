@@ -85,13 +85,13 @@ class FullGameSpec extends Specification {
         Player passivePlayer = players.find { !it.isActive() }
 
         expect:
-        !passivePlayer.shootAt([x: '3', y: 'a']).isPresent()
+        !passivePlayer.shootAt([x: 'a', y: '3']).isPresent()
         passivePlayer.lastShotResponse.statusCode == 418
     }
 
     def 'should receive a MISS if shot misses'() {
         when:
-        FieldState shellingResult = activePlayer.shootAt([x: '1', y: 'b']).get()
+        FieldState shellingResult = activePlayer.shootAt([x: 'b', y: '1']).get()
 
         then:
         shellingResult == FieldState.MISS
@@ -99,7 +99,7 @@ class FullGameSpec extends Specification {
 
     def 'should receive a HIT if shot hits'() {
         when:
-        FieldState shellingResult = activePlayer.shootAt([x: '8', y: 'g']).get()
+        FieldState shellingResult = activePlayer.shootAt([x: 'g', y: '8']).get()
 
         then:
         shellingResult == FieldState.HIT
@@ -107,11 +107,11 @@ class FullGameSpec extends Specification {
 
     def 'should reveive a SUNK if ship is sunk'() {
         given:
-        FieldState shellingResult = activePlayer.shootAt([x: '8', y: 'g']).get()
+        FieldState shellingResult = activePlayer.shootAt([x: 'g', y: '8']).get()
         assert shellingResult == FieldState.HIT
 
         when:
-        shellingResult = players.find { it.isActive() }.shootAt([x: '9', y: 'g']).get()
+        shellingResult = players.find { it.isActive() }.shootAt([x: 'g', y: '9']).get()
 
         then:
         shellingResult == FieldState.SUNK
