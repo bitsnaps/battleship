@@ -16,10 +16,12 @@ angular.module('battleshipApp', [])
             _isInPlacement,
             _connect,
             _updateField,
+            _findPosition,
             _isWater,
             _isShip,
             _isHit,
-            _placeBoat;
+            _placeBoat,
+            _getCellContent;
 
         _fire = function(coordinate) {
             console.log('Try to shoot on a ship');
@@ -53,6 +55,13 @@ angular.module('battleshipApp', [])
         _isInPlacement = function() {
             return _gamePhase == 'PLACEMENT';
         };
+
+        _getCellContent = function(cell) {
+            if(cell.pos == 0) {
+                return cell.state;
+            }
+            return "";
+        }
 
         _connect = function() {
             if (_isInConnection()) {
@@ -102,21 +111,27 @@ angular.module('battleshipApp', [])
                 col = [{"pos":0, "state": rowChar[x-1], "coordinate": ''}];
 
                 for (var i = 1; i < 11; i++) {
-                    //var found, pos = start + i;
-                    //found = field.forEach(function (currentValue) {
-                    //    if (currentValue.pos === pos) {
-                    //        return currentValue;
-                    //    }
-                    //});
-                    //if (found) {
-                    //    row[i] = found
-                    //} else {
-                    col[i] = {"pos": start + i, "state": "W", "coordinate": rowChar[x-1]+i};
-                    //}
+                    var found, p = start + i;
+                    found = _findPosition(positions, p-1);
+                    if (found.length == 1) {
+                        col[i] = {"pos": found[0].pos+1, "state": found[0].state, "coordinate": rowChar[x-1]+i};
+                    } else {
+                        col[i] = {"pos": start + i, "state": "WATER", "coordinate": rowChar[x-1]+i};
+                    }
                 }
                 rows[x] = col;
             }
             return rows;
+        };
+
+        _findPosition = function(matrix, position) {
+            var result = matrix.filter(function (pos) {
+                if (pos.pos == position) {
+                    return true;
+                }
+                return false;
+            });
+            return result;
         };
 
         _isWater = function(cell) {
@@ -146,7 +161,10 @@ angular.module('battleshipApp', [])
 
             $http.post(req.url, req.data, req).then(
                 function (result) {
-                    console.log(result.data);
+                    console.log("Ships: ",result.data.availableShips);
+                    console.log("Matrix: ",result.data.field);
+                    _availableShips = result.data.availableShips;
+                    _field = _updateField(result.data.field);
                 }).catch(function (error) {
                     console.log(error);
                 });
@@ -163,6 +181,7 @@ angular.module('battleshipApp', [])
             isShip: _isShip,
             isHit: _isHit,
             placeBoat: _placeBoat,
+            getCellContent: _getCellContent,
             playerId: function() { return _playerId; },
             gamePhase: function() { return _gamePhase; },
             field: function() { return _field; },

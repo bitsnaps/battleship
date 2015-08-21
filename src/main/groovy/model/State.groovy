@@ -10,6 +10,6 @@ class State {
     List<Ship> availableShips
     //starts with 0
     boolean isVictory = false
-    Map<Integer, FieldState> field
+    List<Position> field
     int undamagedShips
 }

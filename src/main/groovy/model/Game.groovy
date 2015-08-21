@@ -85,7 +85,7 @@ class Game {
                 myTurn: myTurn(playerId),
                 gamePhase: gamePhase,
                 availableShips: player.availableShipsList(),
-                field:player.field,
+                field:player.positionListFor(player.field),
                 isVictory: player.hasShipsLeft(),
                 undamagedShips: player.shipCounter
         )

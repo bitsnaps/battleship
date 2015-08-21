@@ -40,14 +40,18 @@ class Player {
     }
 
     List<Ship> availableShipsList() {
-        final List<Ship> ships = new ArrayList<Ship>();
-        availableShips.each { key, value ->
-            ships.add(new Ship(
+        availableShips.collect { key, value ->
+            new Ship(
                 type: ShipType.typeOfSize(key.toInteger()),
                 size: key.toInteger(),
-                count: value))
+                count: value)
         }
-        ships
+    }
+
+    List<Position> positionListFor(Map<Integer, FieldState> matrix) {
+        matrix.collect { key, value ->
+            new Position(key, value)
+        }
     }
 
     private Collection<Integer> getShipPositions(int bow, int stern) {

@@ -4,16 +4,24 @@
   "gamePhase": "PLACEMENT",
   "availableShips": [
     {
-      "5": 1
+      "type": "SCHLACHTSCHIFF",
+      "size": 5,
+      "count": 1
     },
     {
-      "4": 2
+      "type": "KREUZER",
+      "size": 4,
+      "count": 2
     },
     {
-      "3": 3
+      "type": "UBOOT",
+      "size": 3,
+      "count": 3
     },
     {
-      "2": 4
+      "type": "SCHNELLBOOT",
+      "size": 2,
+      "count": 4
     }
   ],
   "field": [

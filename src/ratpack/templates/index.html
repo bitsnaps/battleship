@@ -31,12 +31,12 @@
 
       <div style="display: block; float:left; margin-top: -4px; margin-right: 50px;">
         <div class="matrix" ng-repeat="row in player.field()">
-          <div ng-repeat="cell in row" class="cell {{cell.state}}" title="{{cell.coordinate}}">{{cell.state}}</div>
+          <div ng-repeat="cell in row" class="cell {{cell.state}}" title="{{cell.coordinate}}">{{player.getCellContent(cell)}}</div>
         </div>
       </div>
       <div style="display:block; margin: 0px;">
         <div class="matrix" ng-repeat="row in player.field()">
-          <div ng-repeat="cell in row" class="cell {{cell.state}}" title="{{cell.coordinate}}">{{cell.state}}</div>
+          <div ng-repeat="cell in row" class="cell {{cell.state}}" title="{{cell.coordinate}}">{{player.getCellContent(cell)}}</div>
         </div>
       </div>
 

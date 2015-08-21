@@ -5,6 +5,7 @@
     padding: 2px;
     margin: 1px;
     border: 1px solid black;
+    vertical-align: top;
 }
 
 .matrix {
@@ -12,14 +13,26 @@
     margin: 5px;
 }
 
-.W {
+.WATER {
     background: deepskyblue;
 }
 
-.S {
+.SHIP {
     background: green;
 }
 
-.X {
+.HIT {
     background: red;
+}
+
+.SUNK {
+    background: black;
+}
+
+.UNKNOWN {
+    background: deepskyblue;
+}
+
+.MISS {
+    background: lightyellow;
 }
