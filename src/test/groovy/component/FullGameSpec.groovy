@@ -1,7 +1,6 @@
 package component
 
 import model.FieldState
-import model.GamePhase
 import ratpack.groovy.test.GroovyRatpackMainApplicationUnderTest
 import ratpack.test.ServerBackedApplicationUnderTest
 import ratpack.test.http.TestHttpClient
@@ -56,7 +55,7 @@ class FullGameSpec extends Specification {
         Collection pollingResults = players.collect { it.poll() }
 
         expect: "both fleets should be available"
-        pollingResults.every { (it['availableShips'] as Map) == ['5': 1, '4': 2, '3': 3, '2': 4] }
+        pollingResults.every { (it['availableShips'] as List<Map<String,String>>) == [[count:1, size:5, type:'SCHLACHTSCHIFF'], [count:2, size:4, type:'KREUZER'], [count:3, size:3, type:'UBOOT'], [count:4, size:2, type:'SCHNELLBOOT']] }
     }
 
     def 'should be in SHOOTOUT phase after both fleets have been deployed'() {
