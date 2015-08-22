@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/battleship.css">
   </head>
-  <body>
+  <>
     <div class="container" ng-controller="BoatsCtrl">
       <p>
         <div>PlayerId: {{player.playerId()}}</div>
-        <div>Du befindest Dich in der Spielphase: {{player.gamePhase()}}</div>
+        <div>Du befindest Dich in der Spielphase: {{player.gamePhase()}}&nbsp;<span>{{player.forVictory()}}</span></div>
       <div ng-show="player.allShipsPlaced() && !player.isInConnection()">
         <div ng-if="!player.isMyTurn()">Du bist nicht am Zug!</div>
         <div ng-if="player.isMyTurn()">Du bist am Zug!</div>
@@ -18,7 +18,7 @@
         <div ng-show="player.isInConnection()"><a href class="btn btn-default btn-sm" ng-click="connect();">Connect</a></div>
       </p>
       <form ng-show="player.isOpenToFire()">
-        <input type="text" ng-model="coordinates"><a href class="btn btn-default btn-sm" ng-click="fire(coordinates);">Feuer</a>
+        <input type="text" ng-model="coordinates" disabled><a href class="btn btn-default btn-sm" ng-click="fire(coordinates);">Feuer</a>
       </form>
 
       <table class="table">
@@ -30,20 +30,20 @@
       </table>
       <p>
         <form ng-show="player.isInPlacement()">
-          Bug: <input type="text" ng-model="bow"> Heck: <input type="text" ng-model="stern"> <a href class="btn btn-default btn-sm" ng-click="placeBoat(bow, stern);">Schiff plazieren</a>
+          Bug: <input type="text" ng-model="bow" disabled> Heck: <input type="text" ng-model="stern" disabled> <a href class="btn btn-default btn-sm" ng-click="placeBoat(bow, stern);">Schiff plazieren</a>
         </form>
       </p>
 
       <div style="display: block; float:left; margin-top: -4px; margin-right: 50px;">
-        <div style="max-width: 400px; display: block;">Dein Spielfeld</div>
+        <div ng-show="!player.isInConnection()" style="max-width: 400px; display: block;">Dein Spielfeld</div>
         <div class="matrix" ng-repeat="row in player.field()">
-          <div ng-repeat="cell in row" class="cell {{cell.state}}" title="{{cell.coordinate}}">{{player.getCellContent(cell)}}</div>
+          <div ng-repeat="cell in row" class="cell {{cell.state}}" ng-click="placeCoordinate(cell);" title="{{cell.coordinate}}">{{player.getCellContent(cell)}}</div>
         </div>
       </div>
       <div style="display:block; margin: 0; margin-left: 500px; max-width: 500px">
-        <div style="display: inline;">Dein Gegner</div>
+        <div ng-show="!player.isInConnection()" style="display: inline;">Dein Gegner</div>
         <div class="matrix" ng-repeat="row in player.oppositeField()">
-          <div ng-repeat="cell in row" class="cell {{cell.state}}" title="{{cell.coordinate}}">{{player.getCellContent(cell)}}</div>
+          <div ng-repeat="cell in row" class="cell {{cell.state}}" ng-click="fireCoordinate(cell);" title="{{cell.coordinate}}">{{player.getCellContent(cell)}}</div>
         </div>
       </div>
 

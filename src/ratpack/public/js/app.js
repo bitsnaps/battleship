@@ -82,7 +82,7 @@ angular.module('battleshipApp', [])
         };
 
         _isInPlacement = function() {
-            return _gamePhase == 'PLACEMENT';
+            return _gamePhase == 'PLACEMENT' && !_allShipsPlaced()
         };
 
         _getCellContent = function(cell) {
@@ -165,27 +165,32 @@ angular.module('battleshipApp', [])
         };
 
         _placeBoat = function(bow,stern) {
-            var req = {
-                method: 'POST',
-                url: 'http://localhost:5050/ship',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'playerId': _playerId
-                },
-                data: {"bow": {"x":bow.charAt(0),"y":bow.charAt(1)},
-                       "stern": {"x":stern.charAt(0),"y":stern.charAt(1)}}
-            };
+            if(bow != '' && stern != '') {
 
-            $http.post(req.url, req.data, req).then(
-                function (result) {
-                    _availableShips = result.data.availableShips;
-                    _field = _updateField(result.data.field);
-                    _gamePhase = result.data.gamePhase;
-                    _myTurn = result.data.myTurn;
-                }).catch(function (error) {
-                    console.log(error);
-                    _gamePhase = result.data.gamePhase;
-                });
+                var req = {
+                    method: 'POST',
+                    url: 'http://localhost:5050/ship',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'playerId': _playerId
+                    },
+                    data: {
+                        "bow": {"x": bow.charAt(0), "y": bow.charAt(1)},
+                        "stern": {"x": stern.charAt(0), "y": stern.charAt(1)}
+                    }
+                };
+
+                $http.post(req.url, req.data, req).then(
+                    function (result) {
+                        _availableShips = result.data.availableShips;
+                        _field = _updateField(result.data.field);
+                        _gamePhase = result.data.gamePhase;
+                        _myTurn = result.data.myTurn;
+                    }).catch(function (error) {
+                        console.log(error);
+                        _gamePhase = result.data.gamePhase;
+                    });
+            }
         };
 
         _allShipsPlaced = function() {
@@ -211,11 +216,17 @@ angular.module('battleshipApp', [])
             gamePhase: function() { return _gamePhase; },
             field: function() { return _field; },
             oppositeField: function(){ return _oppositeField; },
-            ships: function() { return _availableShips; }
+            ships: function() { return _availableShips; },
+            forVictory: function() {
+                if(_gamePhase == 'FINISHED') {
+                    if (_isVictory) return 'Du hast GEWONNEN :-D'; else return 'Du hast leider Verloren :-(';
+                }
+                return '';
+            }
         }
 
     })
-    .controller('BoatsCtrl', function($scope, $http, Player) {
+    .controller('BoatsCtrl', function($scope, $http, $log, Player) {
         $scope.player = Player;
         $scope.placeBoat = function() {
             $scope.player.placeBoat($scope.bow, $scope.stern);
@@ -233,4 +244,24 @@ angular.module('battleshipApp', [])
         $scope.updateState = function() {
             $scope.player.updateMyTurn();
         };
+        $scope.placeCoordinate = function(cell) {
+            if($scope.player.isInPlacement()) {
+                if ($scope.bow && !$scope.stern) {
+                    $scope.stern = cell.coordinate;
+                }
+
+                if (!$scope.bow && $scope.stern) {
+                    $scope.bow = cell.coordinate;
+                }
+
+                if (!$scope.bow && !$scope.stern) {
+                    $scope.bow = cell.coordinate;
+                }
+            }
+        };
+        $scope.fireCoordinate = function(cell) {
+            if($scope.player.isOpenToFire()) {
+                $scope.coordinates = cell.coordinate;
+            }
+        }
     });
