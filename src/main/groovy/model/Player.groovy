@@ -86,7 +86,6 @@ class Player {
 
     private boolean canShipBePlaced(Collection<Integer> ship) {
         ship.every { field[it] == null }
-        //erweitern um ist benachbart zu einem schiff
     }
 
     private isValidShipSize(Collection<Integer> ship) {

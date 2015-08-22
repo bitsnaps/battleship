@@ -22,7 +22,7 @@ class Game {
         game.find { it.id != id }
     }
 
-    FieldState shootAt(Map<String, String> fireCoordinate, String shooterId) {
+    State shootAt(Map<String, String> fireCoordinate, String shooterId) {
         final Player opponent = oppositePlayer(shooterId)
         final Player shooter = playerBy(shooterId)
 
@@ -35,7 +35,7 @@ class Game {
 
         currentPlayerId = opponent.id
 
-        state
+        getState(shooterId)
     }
 
     State placeBoat(Map<String, Map<String, String>> boatCoordinates, String playerId) {
@@ -81,12 +81,13 @@ class Game {
     State getState(String playerId){
         Player player = playerBy(playerId)
         new State(
-                playerId: playerId,
-                myTurn: myTurn(playerId),
-                gamePhase: gamePhase,
+                playerId:       playerId,
+                myTurn:         myTurn(playerId),
+                gamePhase:      gamePhase,
                 availableShips: player.availableShipsList(),
-                field:player.positionListFor(player.field),
-                isVictory: player.hasShipsLeft(),
+                field:          player.positionListFor(player.field),
+                isVictory:      player.hasShipsLeft(),
+                oppositeField:  player.positionListFor(player.oppositeField),
                 undamagedShips: player.shipCounter
         )
     }

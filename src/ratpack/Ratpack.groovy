@@ -41,7 +41,7 @@ ratpack {
 
     //get('/game/field', new GameHandler())
 
-    get('turn', new GameHandler())
+    get('myturn', new GameHandler())
 
     get {
       render groovyTemplate("index.html", title: "Groovy Academy - Battleship-App")

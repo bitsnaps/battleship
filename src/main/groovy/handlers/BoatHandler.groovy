@@ -27,7 +27,7 @@ class BoatHandler implements Handler {
             if (state) {
                 ctx.response.send(toJson(state))
             } else {
-                ctx.response.status(409).send()
+                ctx.response.status(409).send(toJson(state))
             }
         }
     }

@@ -14,15 +14,17 @@ angular.module('battleshipApp', [])
             _isOpenToFire,
             _isInConnection,
             _isInPlacement,
+            _isMyTurn,
             _connect,
             _updateField,
             _findPosition,
             _placeBoat,
-            _getCellContent;
+            _getCellContent,
+            _updateMyTurn,
+            _allShipsPlaced;
 
         _fire = function(coordinate) {
-            console.log('Try to shoot on a ship');
-            if(_playerId != '' && coordinate != '') {
+            if(_playerId != '' && coordinate != '' && _myTurn) {
                 var req = {
                     method: 'PUT',
                     url: 'http://localhost:5050/shoot',
@@ -30,19 +32,49 @@ angular.module('battleshipApp', [])
                         'Content-Type': 'application/json',
                         'playerId' : _playerId
                     },
-                    data: { 'x': 'A', 'y' : '1' }
+                    data: { 'x': coordinate.charAt(0), 'y' : coordinate.charAt(1) }
                 };
-                $http.post(req).then(function(result){
-
-                },function(error){
-
-                })
+                $http.put(req.url, req.data, req).then(function(result){
+                    console.log("Result: ",result.data);
+                    _gamePhase = result.data.gamePhase;
+                    _myTurn = result.data.myTurn;
+                    _availableShips = result.data.availableShips;
+                    _field = _updateField(result.data.field);
+                    _oppositeField = _updateField(result.data.oppositeField);
+                    _isVictory = result.data.isVictory;
+                    _undamagedShips = result.data.undamagedShips;
+                }).catch(function(error){
+                    console.log(error);
+                });
             }
-            console.log("Coordinate: ",coordinate);
+        };
+
+        _updateMyTurn = function() {
+            var req = {
+                method: 'GET',
+                url: 'http://localhost:5050/myturn',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'playerId' : _playerId
+                }
+            };
+            $http.get(req.url, req).then(function(result){
+                console.log("Result: ",result.data);
+                _gamePhase = result.data.gamePhase;
+                _myTurn = result.data.myTurn;
+                _isVictory = result.data.isVictory;
+                _undamagedShips = result.data.undamagedShips;
+            }).catch(function(error){
+                console.log(error);
+            });
+        };
+
+        _isMyTurn = function() {
+            return _myTurn;
         };
 
         _isOpenToFire = function() {
-            return _gamePhase == 'SHOOTOUT';
+            return _gamePhase == 'SHOOTOUT' && _myTurn;
         };
 
         _isInConnection = function() {
@@ -58,7 +90,7 @@ angular.module('battleshipApp', [])
                 return cell.state;
             }
             return "";
-        }
+        };
 
         _connect = function() {
             if (_isInConnection()) {
@@ -78,6 +110,7 @@ angular.module('battleshipApp', [])
                         _myTurn = result.data.myTurn;
                         _availableShips = result.data.availableShips;
                         _field = _updateField(result.data.field);
+                        _oppositeField = _updateField(result.data.oppositeField);
                         _isVictory = result.data.isVictory;
                         _undamagedShips = result.data.undamagedShips;
                     }).catch(function (error) {
@@ -132,7 +165,6 @@ angular.module('battleshipApp', [])
         };
 
         _placeBoat = function(bow,stern) {
-            console.log("Bug: "+bow+" Heck: "+stern);
             var req = {
                 method: 'POST',
                 url: 'http://localhost:5050/ship',
@@ -146,13 +178,21 @@ angular.module('battleshipApp', [])
 
             $http.post(req.url, req.data, req).then(
                 function (result) {
-                    console.log("Ships: ",result.data.availableShips);
-                    console.log("Matrix: ",result.data.field);
                     _availableShips = result.data.availableShips;
                     _field = _updateField(result.data.field);
+                    _gamePhase = result.data.gamePhase;
+                    _myTurn = result.data.myTurn;
                 }).catch(function (error) {
                     console.log(error);
+                    _gamePhase = result.data.gamePhase;
                 });
+        };
+
+        _allShipsPlaced = function() {
+            var ships = _availableShips.filter(function(ship){
+                return ship.count > 0
+            });
+            return ships.length == 0;
         };
 
         return {
@@ -160,13 +200,17 @@ angular.module('battleshipApp', [])
             isOpenToFire: _isOpenToFire,
             isInConnection: _isInConnection,
             isInPlacement: _isInPlacement,
+            isMyTurn: _isMyTurn,
             connect: _connect,
             updateField: _updateField,
             placeBoat: _placeBoat,
             getCellContent: _getCellContent,
+            updateMyTurn: _updateMyTurn,
+            allShipsPlaced: _allShipsPlaced,
             playerId: function() { return _playerId; },
             gamePhase: function() { return _gamePhase; },
             field: function() { return _field; },
+            oppositeField: function(){ return _oppositeField; },
             ships: function() { return _availableShips; }
         }
 
@@ -177,5 +221,16 @@ angular.module('battleshipApp', [])
             $scope.player.placeBoat($scope.bow, $scope.stern);
             $scope.bow = '';
             $scope.stern = '';
-        }
+        };
+        $scope.fire = function() {
+            $scope.player.fire($scope.coordinates);
+            $scope.coordinates = '';
+
+        };
+        $scope.connect = function() {
+            $scope.player.connect();
+        };
+        $scope.updateState = function() {
+            $scope.player.updateMyTurn();
+        };
     });

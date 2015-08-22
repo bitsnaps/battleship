@@ -12,7 +12,7 @@ import static groovy.json.JsonOutput.toJson
 class Player {
     private final static String CONNECT = 'connect'
     private final static String SHIP = 'ship'
-    private final static String POLLING = 'turn'
+    private final static String POLLING = 'myturn'
     private final static String FIRE = 'shoot'
     int victoryCounter = 30
     int shotCount = 0

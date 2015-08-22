@@ -10,10 +10,15 @@
       <p>
         <div>PlayerId: {{player.playerId()}}</div>
         <div>Du befindest Dich in der Spielphase: {{player.gamePhase()}}</div>
-        <div ng-show="player.isInConnection()"><a href class="btn btn-default btn-sm" ng-click="player.connect();">Connect</a></div>
+      <div ng-show="player.allShipsPlaced() && !player.isInConnection()">
+        <div ng-if="!player.isMyTurn()">Du bist nicht am Zug!</div>
+        <div ng-if="player.isMyTurn()">Du bist am Zug!</div>
+        <div><a href class="btn btn-default btn-sm" ng-click="updateState();">Status update</a></div>
+      </div>
+        <div ng-show="player.isInConnection()"><a href class="btn btn-default btn-sm" ng-click="connect();">Connect</a></div>
       </p>
       <form ng-show="player.isOpenToFire()">
-        <input type="text" ng-model="coordinates"><a href class="btn btn-default btn-sm" ng-click="player.fire(coordinates);">Feuer</a>
+        <input type="text" ng-model="coordinates"><a href class="btn btn-default btn-sm" ng-click="fire(coordinates);">Feuer</a>
       </form>
 
       <table class="table">
@@ -30,12 +35,14 @@
       </p>
 
       <div style="display: block; float:left; margin-top: -4px; margin-right: 50px;">
+        <div style="max-width: 400px; display: block;">Dein Spielfeld</div>
         <div class="matrix" ng-repeat="row in player.field()">
           <div ng-repeat="cell in row" class="cell {{cell.state}}" title="{{cell.coordinate}}">{{player.getCellContent(cell)}}</div>
         </div>
       </div>
-      <div style="display:block; margin: 0px;">
-        <div class="matrix" ng-repeat="row in player.field()">
+      <div style="display:block; margin: 0; margin-left: 500px; max-width: 500px">
+        <div style="display: inline;">Dein Gegner</div>
+        <div class="matrix" ng-repeat="row in player.oppositeField()">
           <div ng-repeat="cell in row" class="cell {{cell.state}}" title="{{cell.coordinate}}">{{player.getCellContent(cell)}}</div>
         </div>
       </div>

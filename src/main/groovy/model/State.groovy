@@ -11,5 +11,6 @@ class State {
     //starts with 0
     boolean isVictory = false
     List<Position> field
+    List<Position> oppositeField
     int undamagedShips
 }

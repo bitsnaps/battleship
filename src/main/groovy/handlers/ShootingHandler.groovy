@@ -2,9 +2,9 @@ package handlers
 
 import com.fasterxml.jackson.databind.JsonNode
 import groovy.json.JsonSlurper
-import model.FieldState
 import model.Game
 import model.GamePhase
+import model.State
 import ratpack.handling.Context
 import ratpack.handling.Handler
 
@@ -25,8 +25,8 @@ class ShootingHandler implements Handler {
             final Game game = ctx.get(Game)
 
             if (game.myTurn(playerId) && game.gamePhase == GamePhase.SHOOTOUT) {
-                FieldState fieldState = game.shootAt(fireCoordinate, playerId)
-                ctx.response.status(200).contentType('application/json').send(toJson([shellingResult: fieldState]))
+                State state = game.shootAt(fireCoordinate, playerId)
+                ctx.response.status(200).contentType('application/json').send(toJson(state))
             } else {
                 ctx.response.status(418).send()
             }
