@@ -3,7 +3,7 @@ package model.ship
 import groovy.transform.Immutable
 
 @Immutable
-class Ship {
+class ShipState {
     ShipType type;
     int size;
     int count;

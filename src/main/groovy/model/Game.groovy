@@ -1,6 +1,7 @@
 package model
 
 import groovy.transform.ToString
+import model.field.Fleet
 import model.player.Player
 import model.player.PlayerId
 import model.player.Players
@@ -15,10 +16,10 @@ class Game {
         final Player opponent = players.oppositePlayer(shooterId)
         final Player shooter = players.playerBy(shooterId)
 
-        final FieldState state = opponent.shotAt(fireCoordinate)
+        final FieldState state = opponent.ownField.shotAt(fireCoordinate, opponent.fleet)
         shooter.setShotResult(fireCoordinate, state)
 
-        if(!opponent.hasShipsLeft()){
+        if(!opponent.shipsLeft){
             gamePhase= GamePhase.FINISHED
         }
 
@@ -30,7 +31,7 @@ class Game {
     State placeBoat(Map<String, Map<String, String>> boatCoordinates, PlayerId playerId) {
         final Player player = players.playerBy(playerId)
         if (player) {
-            final map = player.placeBoat(boatCoordinates)
+            player.placeBoat(boatCoordinates)
 
             if (players.allShipsArePlaced()) {
                 //Now let the game start
@@ -60,11 +61,11 @@ class Game {
                 playerId:       playerId,
                 myTurn:         myTurn(playerId),
                 gamePhase:      gamePhase,
-                availableShips: player.availableShipsList(),
-                field:          player.positionListFor(player.field),
-                isVictory:      player.hasShipsLeft(),
+                availableShips: player.availableShips,
+                field:          player.positionListFor(player.ownField.field),
+                isVictory:      player.shipsLeft,
                 oppositeField:  player.positionListFor(player.oppositeField),
-                undamagedShips: player.shipCounter
+                undamagedShips: player.fleet.shipCounter
         )
     }
 }
