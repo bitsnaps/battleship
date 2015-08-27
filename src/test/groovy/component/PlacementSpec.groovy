@@ -18,6 +18,6 @@ class PlacementSpec extends Specification {
         ReceivedResponse response= player1.place('A1', 'A5')
 
         then:
-        response.statusCode==409
+        response.statusCode==401
     }
 }

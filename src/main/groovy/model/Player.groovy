@@ -7,7 +7,7 @@ import static model.FieldState.*
 @Slf4j
 class Player {
     String name
-    String id
+    PlayerId id
     //Players own field
     //a1 is 0
     Map<Integer, FieldState> field = [:]

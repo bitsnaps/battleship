@@ -125,10 +125,10 @@ class Player {
                 requestSpec.headers.set('playerId', playerId)
             }
             lastShotResponse = client.put("$FIRE")
-            if(lastShotResponse.statusCode==200){
+            if (lastShotResponse.statusCode == 200) {
                 alreadyShelled.add(coordinates)
             }
-            adjustVictoryCounter(extractFieldState(lastShotResponse))
+            adjustVictoryCounter(extractFieldState(lastShotResponse, calculatePosition(coordinates)))
         } else {
             Optional.of(fieldStateAt(coordinates))
         }
@@ -146,9 +146,15 @@ class Player {
         (xAxis.indexOf(x) * 10) + Integer.valueOf(y) - 1
     }
 
-    Optional<FieldState> extractFieldState(ReceivedResponse response) {
+    Integer calculatePosition(Map<String, String> coordinates) {
+        calculatePosition(coordinates.x, coordinates.y)
+    }
+
+    Optional<FieldState> extractFieldState(ReceivedResponse response, Integer position) {
         response.statusCode == 200 ?
-                Optional.of(FieldState.valueOf(jsonSlurper.parse(response.body.inputStream)['shellingResult'])) :
+                Optional.of(FieldState.valueOf(jsonSlurper.parseText(response.body.text)['oppositeField'].find {Map<String, String> it->
+                    it.pos == position
+                }.state)) :
                 Optional.empty()
     }
 
@@ -167,7 +173,7 @@ class Player {
      * @return the response object
      */
     ReceivedResponse place(String bow, String stern) {
-        Map<String, Map<String, String>> coordinates = [bow: [x: "${bow.substring(0,1)}", y: "${bow.substring(1,2)}"], stern: [x: "${stern.substring(0,1)}", y: "${stern.substring(1,2)}"]]
+        Map<String, Map<String, String>> coordinates = [bow: [x: "${bow.substring(0, 1)}", y: "${bow.substring(1, 2)}"], stern: [x: "${stern.substring(0, 1)}", y: "${stern.substring(1, 2)}"]]
 
         place coordinates
     }

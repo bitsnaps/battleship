@@ -3,6 +3,7 @@ package handlers
 import groovy.util.logging.Slf4j
 import model.Game
 import model.Player
+import model.PlayerId
 import ratpack.handling.Context
 import ratpack.handling.Handler
 
@@ -13,7 +14,7 @@ class ConnectHandler implements Handler {
     @Override
     void handle(Context ctx) throws Exception {
         Game game = ctx.get(Game)
-        final Optional<String> id = connect(game)
+        final Optional<PlayerId> id = connect(game)
         log.error(game.toString())
         if(id.present) {
             ctx.response.status(201).send(toJson(game.getState(id.get())))
@@ -22,7 +23,7 @@ class ConnectHandler implements Handler {
         }
     }
 
-    private Optional<String> connect(Game game) {
+    private Optional<PlayerId> connect(Game game) {
         //Groovy truth erklären bzw. Beispielaufgabe machen
         game.addPlayer()
     }

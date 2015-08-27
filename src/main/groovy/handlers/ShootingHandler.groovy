@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode
 import groovy.json.JsonSlurper
 import model.Game
 import model.GamePhase
+import model.PlayerId
 import model.State
 import ratpack.handling.Context
 import ratpack.handling.Handler
@@ -20,12 +21,11 @@ class ShootingHandler implements Handler {
             ctx.response.status(500).send()
         } then { JsonNode jsonNode ->
             final Map<String, String> fireCoordinate = slurper.parseText(jsonNode.toString())
-            final String playerId = ctx.request.headers.get('playerId')
 
             final Game game = ctx.get(Game)
 
-            if (game.myTurn(playerId) && game.gamePhase == GamePhase.SHOOTOUT) {
-                State state = game.shootAt(fireCoordinate, playerId)
+            if (game.myTurn(ctx.get(PlayerId)) && game.gamePhase == GamePhase.SHOOTOUT) {
+                State state = game.shootAt(fireCoordinate, ctx.get(PlayerId))
                 ctx.response.status(200).contentType('application/json').send(toJson(state))
             } else {
                 ctx.response.status(418).send()

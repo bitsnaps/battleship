@@ -1,8 +1,10 @@
 import handlers.BoatHandler
 import handlers.ConnectHandler
 import handlers.GameHandler
+import handlers.PlayerIdHandler
 import handlers.ShootingHandler
 import model.Game
+import model.PlayerId
 import modules.GameModule
 import ratpack.groovy.template.MarkupTemplateModule
 import ratpack.groovy.template.TextTemplateModule
@@ -25,7 +27,8 @@ ratpack {
     module JacksonModule
   }
 
-  handlers {
+  handlers { BoatHandler boatHandler ->
+
 
     all(RequestId.bindAndLog())
 
@@ -35,7 +38,12 @@ ratpack {
 
     post('connect', new ConnectHandler())
 
-    post('ship', new BoatHandler())
+    all {
+      final String playerId = request.headers.get('playerId')
+      playerId ? next(Registry.single(new PlayerId(playerId))) : response.status(401).send()
+    }
+
+    post('ship', boatHandler)
 
     put('shoot', new ShootingHandler())
 

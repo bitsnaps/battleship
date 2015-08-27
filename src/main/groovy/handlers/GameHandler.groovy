@@ -1,6 +1,7 @@
 package handlers
 
 import model.Game
+import model.PlayerId
 import ratpack.handling.Context
 import ratpack.handling.Handler
 
@@ -11,9 +12,8 @@ class GameHandler implements Handler {
     void handle(Context ctx) throws Exception {
         //Polling resource
 
-        final String playerId = ctx.request.headers.get('playerId')
         final Game game = ctx.get(Game)
 
-        ctx.response.send(toJson(game.getState(playerId)))
+        ctx.response.send(toJson(game.getState(ctx.get(PlayerId))))
     }
 }
