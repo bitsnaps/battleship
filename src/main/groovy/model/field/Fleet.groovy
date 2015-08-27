@@ -9,12 +9,7 @@ class Fleet {
     int shipCounter = 30
 
     List<ShipState> availableShipsList() {
-        availableShips.collect { key, value ->
-            new ShipState(
-                    type: ShipType.typeOfSize(key.toInteger()),
-                    size: key.toInteger(),
-                    count: value)
-        }
+//TODO
     }
 
     boolean hasShipsLeft() {

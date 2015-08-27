@@ -54,6 +54,9 @@ class OwnField {
         }
     }
 
+    /**
+     * Find all neighboring positions to a given position
+     */
     private Set<Integer> allNonWaterNeighbours(int position, Set<Integer> knownNeighbours) {
         Set<Integer> neighbors = new Neighbors(position).all
 

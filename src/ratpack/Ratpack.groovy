@@ -35,11 +35,6 @@ ratpack {
 
     post('connect', new ConnectHandler())
 
-    all {
-      final String playerId = request.headers.get('playerId')
-      playerId ? next(Registry.single(new PlayerId(playerId))) : response.status(401).send()
-    }
-
     post('ship', boatHandler)
 
     put('shoot', new ShootingHandler())

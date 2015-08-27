@@ -1,7 +1,6 @@
 package model
 
 import groovy.transform.ToString
-import model.field.Fleet
 import model.player.Player
 import model.player.PlayerId
 import model.player.Players
@@ -19,8 +18,8 @@ class Game {
         final FieldState state = opponent.ownField.shotAt(fireCoordinate, opponent.fleet)
         shooter.setShotResult(fireCoordinate, state)
 
-        if(!opponent.shipsLeft){
-            gamePhase= GamePhase.FINISHED
+        if (!opponent.shipsLeft) {
+            gamePhase = GamePhase.FINISHED
         }
 
         currentPlayerId = opponent.id
@@ -28,23 +27,10 @@ class Game {
         getState(shooterId)
     }
 
+    //TODO: place a ship,
+    //if all ships are placed initialize shootuot phase (set gamePhase and currentPlayerId
     State placeBoat(Map<String, Map<String, String>> boatCoordinates, PlayerId playerId) {
-        final Player player = players.playerBy(playerId)
-        if (player) {
-            player.placeBoat(boatCoordinates)
-
-            if (players.allShipsArePlaced()) {
-                //Now let the game start
-                gamePhase=GamePhase.SHOOTOUT
-                currentPlayerId = players.first
-            }
-
-            getState(playerId)
-        } else {
-            null
-        }
     }
-
 
 
     boolean myTurn(playerId) {
@@ -55,17 +41,7 @@ class Game {
         players.addPlayer()
     }
 
-    State getState(PlayerId playerId){
-        Player player = players.playerBy(playerId)
-        new State(
-                playerId:       playerId,
-                myTurn:         myTurn(playerId),
-                gamePhase:      gamePhase,
-                availableShips: player.availableShips,
-                field:          player.positionListFor(player.ownField.field),
-                isVictory:      player.shipsLeft,
-                oppositeField:  player.positionListFor(player.oppositeField),
-                undamagedShips: player.fleet.shipCounter
-        )
+    State getState(PlayerId playerId) {
+        //TODO return the game state of corresponding player
     }
 }
