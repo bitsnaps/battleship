@@ -1,18 +1,15 @@
 import handlers.BoatHandler
 import handlers.ConnectHandler
 import handlers.GameHandler
-import handlers.PlayerIdHandler
 import handlers.ShootingHandler
 import model.Game
-import model.PlayerId
+import model.player.PlayerId
 import modules.GameModule
-import ratpack.groovy.template.MarkupTemplateModule
 import ratpack.groovy.template.TextTemplateModule
 import ratpack.handling.RequestId
 import ratpack.jackson.guice.JacksonModule
 import ratpack.registry.Registry
 
-import static ratpack.groovy.Groovy.groovyMarkupTemplate
 import static ratpack.groovy.Groovy.groovyTemplate
 import static ratpack.groovy.Groovy.ratpack
 

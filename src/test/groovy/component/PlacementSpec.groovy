@@ -1,5 +1,6 @@
 package component
 
+import component.support.Player
 import ratpack.groovy.test.GroovyRatpackMainApplicationUnderTest
 import ratpack.http.client.ReceivedResponse
 import ratpack.test.ServerBackedApplicationUnderTest
@@ -20,4 +21,11 @@ class PlacementSpec extends Specification {
         then:
         response.statusCode==401
     }
+
+    def 'should not be possible to place two ships right next to each other'(){
+
+    }
+    //benachbart
+    //übereck
+
 }

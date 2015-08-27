@@ -1,6 +1,6 @@
 package handlers
 
-import model.PlayerId
+import model.player.PlayerId
 import ratpack.handling.Context
 import ratpack.handling.Handler
 import ratpack.registry.Registry

@@ -1,4 +1,4 @@
-package component
+package component.support
 
 import groovy.json.JsonSlurper
 import groovy.transform.TailRecursive

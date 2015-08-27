@@ -1,4 +1,4 @@
-package model
+package model.ship
 
 enum ShipType {
     SCHLACHTSCHIFF(5), KREUZER(4), UBOOT(3), SCHNELLBOOT(2)

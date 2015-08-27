@@ -1,6 +1,11 @@
-package model
+package model.player
 
 import groovy.util.logging.Slf4j
+import model.FieldState
+import model.Neighbors
+import model.Position
+import model.ship.Ship
+import model.ship.ShipType
 
 import static model.FieldState.*
 

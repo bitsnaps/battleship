@@ -1,4 +1,4 @@
-package model
+package model.ship
 
 import groovy.transform.Immutable
 

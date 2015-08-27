@@ -1,6 +1,7 @@
 package model
 
 import groovy.transform.Immutable
+import model.ship.Ship
 
 @Immutable
 class State {

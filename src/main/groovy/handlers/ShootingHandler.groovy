@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode
 import groovy.json.JsonSlurper
 import model.Game
 import model.GamePhase
-import model.PlayerId
+import model.player.PlayerId
 import model.State
 import ratpack.handling.Context
 import ratpack.handling.Handler

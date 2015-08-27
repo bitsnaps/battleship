@@ -1,5 +1,6 @@
 package component
 
+import component.support.Player
 import model.FieldState
 import ratpack.groovy.test.GroovyRatpackMainApplicationUnderTest
 import ratpack.test.ServerBackedApplicationUnderTest
